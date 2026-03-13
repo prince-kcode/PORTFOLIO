@@ -12,16 +12,12 @@ const About = () => {
           <p className="about-text">
             I am <strong>Prince Kumar</strong>, a B.Tech CSE student specializing in 
             <strong> Artificial Intelligence and Machine Learning</strong>. I am passionate about 
-            web development, technology and building useful digital products.
+            web development, technology and building useful digital products that solve real-world problems.
           </p>
           <div className="about-info">
             <div className="info-item">
               <span className="info-label">Location</span>
               <span className="info-value">Bengaluru, India</span>
-            </div>
-            <div className="info-item">
-              <span className="info-label">Education</span>
-              <span className="info-value">Presidency University</span>
             </div>
           </div>
         </div>

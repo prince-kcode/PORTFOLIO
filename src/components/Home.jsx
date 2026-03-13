@@ -20,7 +20,11 @@ const Home = () => {
         <p className="hero-subtitle">B.Tech CSE (AI & ML) Student | Web Developer | AI Enthusiast</p>
         
         <div className="hero-description">
-          <p>Building functional and beautiful digital experiences with modern technologies.</p>
+          <p>
+            I am a passionate B.Tech CSE (AI & ML) student interested in Artificial Intelligence, 
+            Machine Learning, and Web Development. I enjoy building modern web applications 
+            and learning new technologies to solve real-world problems.
+          </p>
           <p className="tagline">"Me, Coffee and My Omen"</p>
         </div>
 

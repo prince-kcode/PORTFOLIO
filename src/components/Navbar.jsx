@@ -24,8 +24,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
-        <a href="#home" className="nav-logo">PK</a>
-        
+        {/* Logo removed for clean design */}
         <div className={`nav-links ${mobileOpen ? 'open' : ''}`}>
           {navLinks.map((link) => (
             <a 
