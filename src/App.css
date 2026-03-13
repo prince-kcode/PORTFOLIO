@@ -1,0 +1,45 @@
+/* ═════════ App-level ═════════ */
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ── Ambient floating particles (pure CSS version) ── */
+.app__particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.app__particle {
+  position: absolute;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.35);
+  animation: drift linear infinite;
+}
+@keyframes drift {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-10vh) translateX(40px); opacity: 0; }
+}
+
+/* ── Grain overlay ── */
+.app::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* All sections content should be above particles */
+.app > *:not(.app__particles) {
+  position: relative;
+  z-index: 1;
+}
