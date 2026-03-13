@@ -7,7 +7,7 @@ const Home = () => {
       <div className="container hero-container animate-up">
         <div className="profile-wrapper">
           <img 
-            src="/profile.png" 
+            src="/profile.jpg" 
             alt="Prince Kumar" 
             className="profile-img"
             onError={(e) => {
