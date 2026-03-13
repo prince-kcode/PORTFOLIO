@@ -1,49 +1,50 @@
+import React from 'react';
 import './Projects.css';
 
 const projects = [
   {
-    icon: '🏥',
     title: 'Virtual Doctor with IoT',
-    desc: 'A smart healthcare project that uses IoT devices to monitor patient health data and provide basic medical suggestions. Integrates sensors with a web dashboard for real-time vitals tracking.',
-    tech: ['IoT', 'Python', 'Web Dashboard'],
+    description: 'A smart healthcare system using IoT for real-time vitals tracking and Suggestion.',
+    tech: ['Python', 'IoT', 'Web'],
+    link: '#'
   },
   {
-    icon: '🖥️',
     title: 'Portfolio Website',
-    desc: 'A personal portfolio website built using HTML, CSS, and JavaScript to showcase my skills, projects, and professional journey with modern design and smooth animations.',
-    tech: ['HTML', 'CSS', 'JavaScript'],
+    description: 'My personal portfolio built with React and modern UI/UX principles.',
+    tech: ['React', 'Vite', 'CSS'],
+    link: '#'
   },
   {
-    icon: '🎓',
-    title: 'Presidency University Website Clone',
-    desc: 'A mini web development project where I recreated the Presidency University website interface using HTML and CSS, focusing on layout accuracy and responsive design.',
-    tech: ['HTML', 'CSS', 'Responsive Design'],
-  },
+    title: 'Presidency Univ Clone',
+    description: 'A pixel-perfect recreation of the university landing page.',
+    tech: ['HTML', 'CSS', 'JS'],
+    link: '#'
+  }
 ];
 
-export default function Projects() {
+const Projects = () => {
   return (
-    <section className="section" id="projects">
+    <section id="projects" className="reveal">
       <div className="container">
-        <span className="section__tag sr">// projects</span>
-        <h2 className="section__title sr">
-          Things I've <span>Built</span>
-        </h2>
-
-        <div className="projects__grid">
-          {projects.map((p, i) => (
-            <div
-              className="card project-card sr"
-              key={i}
-              style={{ transitionDelay: `${i * 0.1}s` }}
-            >
-              <span className="project-card__icon">{p.icon}</span>
-              <h3 className="project-card__title">{p.title}</h3>
-              <p className="project-card__desc">{p.desc}</p>
-              <div className="project-card__tech">
-                {p.tech.map((t) => (
-                  <span className="tech-tag" key={t}>{t}</span>
-                ))}
+        <span className="section-tag">// showcase</span>
+        <h2 className="section-title">Selected Projects</h2>
+        
+        <div className="projects-list">
+          {projects.map((project, index) => (
+            <div key={index} className="project-item">
+              <div className="project-info">
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-desc">{project.description}</p>
+                <div className="project-tech">
+                  {project.tech.map((t, i) => (
+                    <span key={i} className="tech-chip">{t}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="project-action">
+                <a href={project.link} className="view-link">
+                  View Case Study <span className="arrow">→</span>
+                </a>
               </div>
             </div>
           ))}
@@ -51,4 +52,6 @@ export default function Projects() {
       </div>
     </section>
   );
-}
+};
+
+export default Projects;
