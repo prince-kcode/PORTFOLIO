@@ -24,7 +24,7 @@ const About = () => {
                 style={{ width: 220, height: 220 }}
               >
                 <img
-                  src="/profile.jpg"
+                  src="profile.jpg"
                   alt="Prince Kumar portrait"
                   className="w-full h-full object-cover object-top"
                 />
