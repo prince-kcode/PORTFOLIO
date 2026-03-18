@@ -17,12 +17,32 @@ const About = () => {
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-8">Who Am I?</h2>
 
-          <p className="text-[#a1a1aa] text-xl leading-[1.8] mb-12">
-            I am a passionate <strong className="text-white">B.Tech CSE (AI & ML)</strong> student interested in{" "}
-            <strong className="text-white">Artificial Intelligence, Machine Learning,</strong> and{" "}
-            <strong className="text-white">Web Development</strong>. I enjoy building modern web 
-            applications and learning new technologies to solve real-world problems.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-12 text-left">
+            <div className="flex justify-center lg:justify-end">
+              <div
+                className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+                style={{ width: 220, height: 220 }}
+              >
+                <img
+                  src="/profile.jpg"
+                  alt="Prince Kumar portrait"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+            </div>
+
+            <div>
+              <p className="text-[#a1a1aa] text-xl mb-6" style={{ lineHeight: 1.8 }}>
+                I’m a <strong className="text-white">B.Tech CSE (AI & ML)</strong> student based in{" "}
+                <strong className="text-white">Bengaluru</strong>, with a strong interest in building scalable
+                web applications and applying AI/ML concepts to real-world problems.
+              </p>
+              <p className="text-[#a1a1aa] text-lg leading-relaxed">
+                I value clean engineering, thoughtful UI, and continuous learning. I’m currently seeking
+                opportunities to contribute to impactful projects and grow as a developer.
+              </p>
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center border-t border-white/10 pt-12">
             <div>

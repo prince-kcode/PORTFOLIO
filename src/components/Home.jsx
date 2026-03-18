@@ -41,7 +41,7 @@ const Home = () => {
             style={{ width: 156, height: 156, boxShadow: "0 18px 50px rgba(0,0,0,0.45)" }}
           >
             <img
-              src="/profile.svg"
+              src="/profile.jpg"
               alt="Prince Kumar"
               className="w-full h-full object-cover object-top"
             />

@@ -52,7 +52,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group bg-[#121216] border border-white/10 p-8 md:p-10 rounded-[20px] flex flex-col md:flex-row gap-6 justify-between md:items-center hover:border-white/20 transition-colors"
+              className="group bg-[#121216] border border-white/10 p-8 md:p-10 rounded-2xl flex flex-col md:flex-row gap-6 justify-between md:items-center hover:border-white/20 transition-colors"
             >
               <div className="flex-1">
                 <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-[#22d3ee] transition-colors">

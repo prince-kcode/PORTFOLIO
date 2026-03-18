@@ -225,4 +225,36 @@ h1, h2, h3 {
 .grid { display: grid; }
 .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
 
+/* Common utilities used in components */
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.hidden { display: none; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.object-cover { object-fit: cover; }
+.object-top { object-position: top; }
+.space-y-6 > * + * { margin-top: 1.5rem; }
+
+/* Support a small set of "arbitrary value" utility classes used in JSX */
+.text-\[\#a1a1aa\] { color: #a1a1aa; }
+.text-\[\#22d3ee\] { color: #22d3ee; }
+.bg-\[\#121216\] { background-color: #121216; }
+.bg-\[\#0a0a0c\] { background-color: #0a0a0c; }
+.bg-\[\#121216\]\/30 { background-color: rgba(18, 18, 22, 0.3); }
+.text-\[\#22d3ee\]\/60 { color: rgba(34, 211, 238, 0.6); }
+.border-\[\#22d3ee\]\/20 { border-color: rgba(34, 211, 238, 0.2); }
+.bg-\[\#22d3ee\]\/10 { background-color: rgba(34, 211, 238, 0.1); }
+.rounded-\[20px\] { border-radius: 20px; }
+.min-h-\[1\.5em\] { min-height: 1.5em; }
+.py-3\.5 { padding-top: 0.875rem; padding-bottom: 0.875rem; }
+
 
