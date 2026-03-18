@@ -3,8 +3,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin } from "lucide-react";
 import "./Home.css";
 
-const subtitleFull =
-  "B.Tech CSE (AI & ML) Student · Web Developer · AI & ML Enthusiast";
+const subtitleFull = "B.Tech CSE (AI & ML) Student | Web Developer | AI Enthusiast";
 
 const Home = () => {
   const [typedText, setTypedText] = useState("");
@@ -64,9 +63,9 @@ const Home = () => {
             {typedText}<span className={typingDone ? "hidden" : "cursor-blink"}>|</span>
           </p>
           <p className="text-[#a1a1aa] text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-            I’m a B.Tech CSE (AI & ML) student focused on building reliable web applications and
-            exploring practical AI/ML. I enjoy turning ideas into clean, user-friendly products and
-            improving them through iteration and feedback.
+            I am a passionate B.Tech CSE (AI & ML) student interested in Artificial Intelligence, 
+            Machine Learning, and Web Development. I enjoy building modern web applications 
+            and learning new technologies to solve real-world problems.
           </p>
         </motion.div>
 
@@ -77,7 +76,7 @@ const Home = () => {
           className="flex flex-col sm:flex-row items-center gap-4"
         >
           <a
-            href="/resume.pdf"
+            href="resume.pdf"
             className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-[#22d3ee] text-black font-semibold hover:bg-[#22d3ee]/90 transition-colors"
           >
             Download Resume

@@ -33,12 +33,13 @@ const About = () => {
 
             <div>
               <p className="text-[#a1a1aa] text-xl mb-6" style={{ lineHeight: 1.8 }}>
-                I’m a <strong className="text-white">B.Tech CSE (AI & ML)</strong> student based in{" "}
-                <strong className="text-white">Bengaluru</strong>, with a strong interest in building scalable
-                web applications and applying AI/ML concepts to real-world problems.
+                I am a passionate <strong className="text-white">B.Tech CSE (AI & ML)</strong> student interested in{" "}
+                <strong className="text-white">Artificial Intelligence, Machine Learning,</strong> and{" "}
+                <strong className="text-white">Web Development</strong>. I enjoy building modern web 
+                applications and learning new technologies to solve real-world problems.
               </p>
               <p className="text-[#a1a1aa] text-lg leading-relaxed">
-                I value clean engineering, thoughtful UI, and continuous learning. I’m currently seeking
+                I value clean engineering, thoughtful UI, and continuous learning. I'm currently seeking
                 opportunities to contribute to impactful projects and grow as a developer.
               </p>
             </div>
