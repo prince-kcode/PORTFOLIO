@@ -34,7 +34,7 @@ const Home = () => {
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
             href="#projects"
-            className="inline-flex min-w-[200px] items-center justify-center rounded-md bg-white px-6 py-3 font-semibold text-slate-900 shadow-sm transition hover:bg-slate-200"
+            className="inline-flex min-w-[200px] items-center justify-center rounded-md bg-white px-6 py-3 font-semibold text-black shadow-sm transition hover:bg-slate-200"
           >
             View Projects
           </a>
