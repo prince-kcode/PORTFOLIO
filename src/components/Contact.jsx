@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Github, Linkedin, Loader2 } from "lucide-react";
-import { api } from "../lib/api";
 
 const GITHUB_URL = "https://github.com/prince-kcode";
 const LINKEDIN_URL = "https://www.linkedin.com/in/prince-kumar-00863b336";
+const WEB3FORMS_KEY = "97862d99-34e7-411f-be7a-cde8bc10b34a";
 
 const initial = { name: "", email: "", message: "" };
 
@@ -23,12 +23,26 @@ const Contact = () => {
     setLoading(true);
     setStatus({ type: null, text: "" });
     try {
-      const { data } = await api.post("/api/contact", form);
-      setStatus({ type: "success", text: data.message || "Message sent successfully." });
-      setForm(initial);
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          subject: `Portfolio Contact from ${form.name}`,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus({ type: "success", text: "Message sent successfully!" });
+        setForm(initial);
+      } else {
+        setStatus({ type: "error", text: data.message || "Something went wrong." });
+      }
     } catch (err) {
-      const msg = err.response?.data?.error || err.message || "Could not send message.";
-      setStatus({ type: "error", text: msg });
+      setStatus({ type: "error", text: "Network error. Please try again." });
     } finally {
       setLoading(false);
     }
@@ -82,6 +96,7 @@ const Contact = () => {
             onSubmit={onSubmit}
             className="rounded-xl border border-slate-200/80 bg-white p-6 shadow-sm"
           >
+            <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
             <label className="block text-sm font-medium text-slate-700">
               Name
               <input
