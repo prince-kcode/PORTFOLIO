@@ -14,7 +14,7 @@ const Skills = () => {
     <section id="skills" className="scroll-mt-[var(--nav-h)] py-20 sm:py-24">
       <div className="mx-auto max-w-5xl px-5 sm:px-6">
         <div className="mb-12 text-center sm:text-left">
-          <p className="text-sm font-semibold uppercase tracking-widest bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+          <p className="text-sm font-semibold uppercase tracking-widest bg-gradient-to-r from-teal-500 to-emerald-500 bg-clip-text text-transparent">
             Expertise
           </p>
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl">
@@ -30,7 +30,7 @@ const Skills = () => {
             >
               <h3 className="text-lg font-bold text-slate-800">{skill.name}</h3>
               <p className="mt-2 text-sm text-slate-500">{skill.hint}</p>
-              <div className="mt-4 h-1 w-10 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400" />
+              <div className="mt-4 h-1 w-10 rounded-full bg-gradient-to-r from-teal-400 to-emerald-400" />
             </div>
           ))}
         </div>
