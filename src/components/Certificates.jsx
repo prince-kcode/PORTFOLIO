@@ -2,14 +2,38 @@ import React from "react";
 
 const certificates = [
   {
-    title: "GenAI Job Simulation",
-    platform: "Forage",
-    skills: "AI chatbot, data analysis",
+    title: "TCS iON Career Edge – Young Professional",
+    issuer: "TCS iON · Tata Consultancy Services",
+    date: "Oct 18 – Nov 1, 2025",
+    certId: "240640-29210179-1016",
+    skills: [
+      "Communication Skills",
+      "Presentation Skill",
+      "Soft Skills",
+      "Resume Writing",
+      "Interview Skills",
+      "Business Etiquette",
+      "IT Foundational Skills",
+      "Overview of AI",
+    ],
+    color: "from-blue-500 to-blue-700",
+    bgColor: "from-blue-50 to-sky-50",
+    accentText: "text-blue-600",
+    badgeColor: "bg-blue-100 text-blue-700",
   },
   {
-    title: "TCS iON Career Edge \u2013 Young Professional",
-    platform: "TCS iON",
-    skills: "Communication, AI basics, IT fundamentals",
+    title: "GenAI Job Simulation",
+    issuer: "BCG X · Forage",
+    date: "December 1, 2025",
+    certId: "wuSCy8Z8irdFTqrZy",
+    skills: [
+      "Data Extraction & Analysis",
+      "AI-Powered Financial Chatbot",
+    ],
+    color: "from-emerald-500 to-green-600",
+    bgColor: "from-emerald-50 to-green-50",
+    accentText: "text-emerald-600",
+    badgeColor: "bg-emerald-100 text-emerald-700",
   },
 ];
 
@@ -30,24 +54,36 @@ const Certificates = () => {
           {certificates.map((cert, idx) => (
             <article
               key={idx}
-              className="flex flex-col overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-sm transition-all hover:shadow-lg hover:-translate-y-1"
+              className="flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all hover:shadow-xl hover:-translate-y-1"
             >
-              <div className="h-40 w-full bg-gradient-to-br from-amber-50 to-orange-50 flex flex-col items-center justify-center border-b border-slate-100">
-                <svg className="w-10 h-10 text-amber-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                <span className="text-amber-500 font-medium text-xs tracking-widest uppercase">Certificate</span>
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-slate-800 mb-1">
+              {/* Header band */}
+              <div className={`bg-gradient-to-r ${cert.color} px-6 py-5 text-white`}>
+                <p className="text-xs font-medium uppercase tracking-widest opacity-80">
+                  Certificate of Achievement
+                </p>
+                <h3 className="mt-1 text-lg font-bold leading-snug">
                   {cert.title}
                 </h3>
-                <p className="text-sm font-medium text-amber-600 mb-4">
-                  {cert.platform}
+              </div>
+
+              {/* Body */}
+              <div className="p-6 flex-1 flex flex-col">
+                <p className={`text-sm font-semibold ${cert.accentText} mb-1`}>
+                  {cert.issuer}
                 </p>
-                <div className="text-sm leading-relaxed text-slate-500">
-                  <strong className="text-slate-700">Skills: </strong>
-                  {cert.skills}
+                <p className="text-xs text-slate-400 mb-4">
+                  Completed: {cert.date} · Cert ID: {cert.certId}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {cert.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className={`rounded-full px-3 py-1 text-xs font-medium ${cert.badgeColor}`}
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </div>
             </article>
