@@ -11,7 +11,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="portfolio-app min-h-screen bg-[#0f172a] text-slate-100">
+    <div className="portfolio-app min-h-screen">
       <Navbar />
       <main>
         <Home />
