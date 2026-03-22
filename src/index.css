@@ -1,24 +1,10 @@
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --muted: #64748b;
-  --border: rgba(15, 23, 42, 0.08);
-  --nav-h: 72px;
-  --line-color: #94a3b8;
-  --cube-edge: rgba(15, 23, 42, 0.12);
-  --cube-face: rgba(255, 255, 255, 0.92);
-  --cube-text: #0f172a;
-}
-
-html.dark {
-  --background: #070a0f;
+  --background: #0f172a;
   --foreground: #f1f5f9;
   --muted: #94a3b8;
-  --border: rgba(148, 163, 184, 0.12);
-  --line-color: #475569;
-  --cube-edge: rgba(148, 163, 184, 0.25);
-  --cube-face: rgba(15, 23, 42, 0.85);
-  --cube-text: #e2e8f0;
+  --border: rgba(255, 255, 255, 0.1);
+  --nav-h: 72px;
+  --line-color: #334155;
 }
 
 *,

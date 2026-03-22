@@ -1,9 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import PageLoader from "./components/PageLoader";
 import Home from "./components/Home";
 import About from "./components/About";
-import Education from "./components/Education";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Certificates from "./components/Certificates";
@@ -13,13 +11,11 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="portfolio-app min-h-screen bg-[var(--background)] text-[var(--foreground)]">
-      <PageLoader />
+    <div className="portfolio-app min-h-screen bg-[#0f172a] text-slate-100">
       <Navbar />
       <main>
         <Home />
         <About />
-        <Education />
         <Skills />
         <Projects />
         <Certificates />
