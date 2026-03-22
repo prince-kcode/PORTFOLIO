@@ -49,13 +49,7 @@ const Navbar = () => {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 sm:px-6">
-        <a
-          href="#home"
-          className="text-lg font-semibold tracking-tight text-white"
-          onClick={scrollToTop}
-        >
-          Prince Kumar
-        </a>
+        {/* Removed Logo per user request */}
 
         <nav className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => (
