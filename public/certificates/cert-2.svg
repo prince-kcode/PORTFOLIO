@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#F1F5F9"/>
+  <rect x="40" y="40" width="720" height="520" rx="16" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+  <circle cx="400" cy="120" r="36" fill="#0F172A" opacity="0.06"/>
+  <text x="400" y="210" text-anchor="middle" font-family="system-ui,sans-serif" font-size="26" font-weight="700" fill="#0F172A">JavaScript Essentials</text>
+  <text x="400" y="260" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" fill="#64748B">Awarded for proficiency in core language concepts</text>
+  <text x="400" y="330" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" font-weight="600" fill="#0F172A">Prince Kumar</text>
+  <rect x="280" y="400" width="240" height="48" rx="8" fill="#E0F2FE" stroke="#38BDF8" stroke-width="1"/>
+  <text x="400" y="430" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="13" fill="#0369A1">VERIFIED · JS-ESS-2024</text>
+</svg>

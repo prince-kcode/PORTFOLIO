@@ -11,4 +11,5 @@ export default defineConfig({
   build: {
     outDir: 'dist',
   },
+  envPrefix: ['VITE_', 'REACT_APP_'],
 });

@@ -1,54 +1,54 @@
 import React from "react";
 import { motion } from "framer-motion";
-import "./Skills.css";
 
 const skills = [
-  { name: "Python", emoji: "🐍" },
-  { name: "JavaScript", emoji: "⚡" },
-  { name: "HTML & CSS", emoji: "🌐" },
-  { name: "React", emoji: "⚛️" },
-  { name: "AI & ML", emoji: "🧠" },
-  { name: "IoT", emoji: "🔌" },
-  { name: "Vite", emoji: "⚡" },
-  { name: "Web Dev", emoji: "💻" },
-  { name: "GitHub", emoji: "🐙" },
-  { name: "Animation", emoji: "🎨" }
+  { name: "HTML", hint: "Structure & semantics" },
+  { name: "CSS", hint: "Layout & responsive UI" },
+  { name: "JavaScript", hint: "ES6+ & DOM" },
+  { name: "React", hint: "Components & hooks" },
+  { name: "GitHub", hint: "Workflow & collaboration" },
+  { name: "Basic Backend", hint: "Node · Express · APIs" },
 ];
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 bg-[#121216]/30">
-      <div className="max-w-5xl mx-auto px-6">
+    <section
+      id="skills"
+      className="scroll-mt-[var(--nav-h)] border-y border-slate-200/80 bg-slate-50/80 py-20 dark:border-slate-800 dark:bg-slate-900/30 sm:py-24"
+    >
+      <div className="mx-auto max-w-5xl px-5 sm:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.45 }}
+          className="mb-12 text-center sm:text-left"
         >
-          <span className="font-mono text-[#22d3ee] text-sm tracking-widest uppercase mb-4 block">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-sky-600 dark:text-sky-400">
             skills
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold">Technical Skills</h2>
-          <p className="text-[#a1a1aa] text-lg max-w-2xl mx-auto mt-4 leading-relaxed">
-            A focused set of tools and technologies I use to build and ship projects.
+          </p>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            Technical Skills
+          </h2>
+          <p className="mt-3 max-w-2xl text-slate-600 dark:text-slate-400">
+            A focused toolkit for building full-stack prototypes and shipping incremental improvements.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-6">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((skill, idx) => (
             <motion.div
               key={skill.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.05 }}
-              className="bg-[#121216] border border-white/10 p-8 rounded-2xl flex flex-col items-center justify-center gap-4 hover:border-white/20 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(0,0,0,0.45)] transition-all duration-300"
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
+              whileHover={{ y: -4 }}
+              className="group rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg dark:border-slate-700 dark:bg-slate-900/50"
             >
-              <span className="text-4xl" role="img" aria-label={skill.name}>
-                {skill.emoji}
-              </span>
-              <span className="font-bold text-white text-lg">{skill.name}</span>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white">{skill.name}</h3>
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">{skill.hint}</p>
+              <div className="mt-4 h-1 w-10 rounded-full bg-slate-900 transition-all group-hover:w-16 dark:bg-sky-500" />
             </motion.div>
           ))}
         </div>

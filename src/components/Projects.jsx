@@ -1,88 +1,89 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import "./Projects.css";
+import { ExternalLink } from "lucide-react";
+
+const GITHUB_LINK = "https://share.google/Kw9CQ6yJ2597j1PaG";
 
 const projects = [
   {
-    title: "Presidency Univ Clone",
-    description: "A responsive recreation of the university landing page with a strong focus on layout and consistency.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    href: "https://github.com/prince-kcode"
+    title: "University landing clone",
+    description:
+      "Responsive layout study mirroring institutional branding, navigation patterns, and content hierarchy.",
+    stack: ["HTML", "CSS", "JavaScript"],
+    href: GITHUB_LINK,
   },
   {
-    title: "Virtual Doctor with IoT",
-    description: "A smart healthcare prototype using IoT for real-time vitals tracking and basic health insights.",
-    tags: ["Python", "IoT", "Flask"],
-    href: "https://github.com/prince-kcode"
+    title: "Health IoT prototype",
+    description:
+      "Concept project exploring sensor data flows and lightweight dashboards for wellness insights.",
+    stack: ["Python", "IoT", "Flask"],
+    href: GITHUB_LINK,
   },
   {
-    title: "Portfolio Website",
-    description: "A personal portfolio built with React, with a clean layout and modern UI patterns.",
-    tags: ["React", "Vite", "CSS"],
-    href: "https://github.com/prince-kcode"
-  }
+    title: "Portfolio website",
+    description:
+      "This production portfolio — React UI, Express contact API, and deployment-ready structure.",
+    stack: ["React", "Vite", "Tailwind", "Node"],
+    href: GITHUB_LINK,
+  },
 ];
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-24">
-      <div className="max-w-4xl mx-auto px-6">
+    <section id="projects" className="scroll-mt-[var(--nav-h)] py-20 sm:py-24">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-16"
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.45 }}
+          className="mb-12 text-center sm:text-left"
         >
-          <span className="font-mono text-[#22d3ee] text-sm tracking-widest uppercase mb-4 block">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-sky-600 dark:text-sky-400">
             projects
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold">Selected Projects</h2>
-          <p className="text-[#a1a1aa] text-lg max-w-2xl mt-4 leading-relaxed">
-            A selection of projects that reflect my current focus and interests.
+          </p>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            Selected Projects
+          </h2>
+          <p className="mt-3 max-w-2xl text-slate-600 dark:text-slate-400">
+            Cards summarize scope; follow the link for code and details.
           </p>
         </motion.div>
 
-        <div className="space-y-6">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, idx) => (
-            <motion.div
+            <motion.article
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group bg-[#121216] border border-white/10 p-8 md:p-10 rounded-2xl flex flex-col md:flex-row gap-6 justify-between md:items-center hover:border-white/20 transition-colors"
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: idx * 0.06 }}
+              whileHover={{ y: -6 }}
+              className="flex flex-col rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-shadow hover:shadow-xl dark:border-slate-700 dark:bg-slate-900/50"
             >
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-[#22d3ee] transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-[#a1a1aa] mb-6 leading-relaxed">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="font-mono text-xs px-3 py-1.5 rounded-full bg-[#22d3ee]/10 text-[#22d3ee] border border-[#22d3ee]/20"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white">{project.title}</h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                {project.description}
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {project.stack.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 font-mono text-[11px] font-medium text-slate-700 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
-              <div className="mt-4 md:mt-0">
-                <a
-                  href={project.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-white font-medium hover:text-[#22d3ee] transition-colors"
-                >
-                  View on GitHub <ArrowRight size={18} />
-                </a>
-              </div>
-            </motion.div>
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-700 hover:text-sky-800 dark:text-sky-400 dark:hover:text-sky-300"
+              >
+                View on GitHub <ExternalLink className="h-4 w-4" />
+              </a>
+            </motion.article>
           ))}
         </div>
       </div>

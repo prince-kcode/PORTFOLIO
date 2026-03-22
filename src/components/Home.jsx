@@ -1,114 +1,163 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { Github, Linkedin } from "lucide-react";
-import "./Home.css";
+import React, { useCallback, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Cube3D from "./ui/Cube3D";
+import CornerLines from "./ui/CornerLines";
+import profileImg from "../assets/profile.jpg";
 
-const subtitleFull = "B.Tech CSE (AI & ML) Student | Web Developer | AI Enthusiast";
+const slides = [
+  {
+    id: "intro",
+    kicker: "Portfolio",
+    title: "Prince Kumar",
+    role: "AI & ML Engineer",
+    tagline: 'Me with coffee ☕ and my Omen 💻',
+    body:
+      "B.Tech CSE (AI & ML), 4th semester — Presidency University, Bengaluru. I build clean interfaces and practical ML-aware software.",
+  },
+  {
+    id: "focus",
+    kicker: "Focus",
+    title: "Engineering with clarity",
+    role: "Web · AI · Systems",
+    tagline: "Ship small, measure, iterate.",
+    body:
+      "I enjoy turning complex ideas into maintainable products: thoughtful UI, solid APIs, and experiments that stay lightweight.",
+  },
+];
 
 const Home = () => {
-  const [typedText, setTypedText] = useState("");
-  const [typingDone, setTypingDone] = useState(false);
+  const [index, setIndex] = useState(0);
+  const total = slides.length;
+  const slide = slides[index];
 
-  useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      setTypedText(subtitleFull.slice(0, i + 1));
-      i++;
-      if (i >= subtitleFull.length) {
-        clearInterval(interval);
-        setTypingDone(true);
-      }
-    }, 40);
-    return () => clearInterval(interval);
-  }, []);
+  const prev = useCallback(() => {
+    setIndex((i) => (i - 1 + total) % total);
+  }, [total]);
+
+  const next = useCallback(() => {
+    setIndex((i) => (i + 1) % total);
+  }, [total]);
 
   return (
-    <section 
-      id="home" 
-      className="relative min-h-screen flex items-center justify-center pt-20 pb-12 overflow-hidden" 
-      style={{ background: "radial-gradient(circle at 50% 50%, rgba(34,211,238,0.05) 0%, transparent 70%)" }}
+    <section
+      id="home"
+      className="relative min-h-[min(100vh,920px)] overflow-hidden pt-[var(--nav-h)] pb-16"
     >
-      <div className="max-w-4xl mx-auto px-6 relative z-10 w-full flex flex-col items-center text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-8"
-        >
-          <div
-            className="rounded-full overflow-hidden border border-white/10 mx-auto"
-            style={{ width: 156, height: 156, boxShadow: "0 18px 50px rgba(0,0,0,0.45)" }}
-          >
-            <img
-              src="profile.jpg"
-              alt="Prince Kumar"
-              className="w-full h-full object-cover object-top"
-            />
-          </div>
-        </motion.div>
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(15,23,42,0.06)_0%,transparent_55%)] dark:bg-[radial-gradient(ellipse_at_50%_0%,rgba(56,189,248,0.08)_0%,transparent_55%)]"
+        aria-hidden
+      />
+      <CornerLines />
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <p className="text-[#a1a1aa] text-xl mb-2">Hello, I’m</p>
-          <h1
-            className="font-extrabold tracking-tight mb-4 text-gradient"
-            style={{ fontSize: "clamp(2.5rem, 5vw + 1rem, 4.5rem)" }}
-          >
-            Prince Kumar
-          </h1>
-          <p className="font-mono text-[#22d3ee] text-sm sm:text-base md:text-lg mb-3 min-h-[1.5em]">
-            {typedText}<span className={typingDone ? "hidden" : "cursor-blink"}>|</span>
-          </p>
-          <p className="text-[#a1a1aa] text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-            I am a passionate B.Tech CSE (AI & ML) student interested in Artificial Intelligence, 
-            Machine Learning, and Web Development. I enjoy building modern web applications 
-            and learning new technologies to solve real-world problems.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-col sm:flex-row items-center gap-4"
-        >
-          <a
-            href="resume.pdf"
-            className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-[#22d3ee] text-black font-semibold hover:bg-[#22d3ee]/90 transition-colors"
-          >
-            Download Resume
-          </a>
-          <a
-            href="#projects"
-            className="w-full sm:w-auto px-8 py-3.5 rounded-lg border border-white/20 text-white font-semibold hover:bg-white/10 transition-colors"
-          >
-            View Projects
-          </a>
-
-          <div className="flex items-center gap-4 ml-0 sm:ml-4 mt-4 sm:mt-0">
-            <a 
-              href="https://github.com/prince-kcode" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="p-3 rounded-full border border-white/10 hover:border-[#22d3ee]/50 hover:text-[#22d3ee] transition-colors text-[#a1a1aa]"
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-10 px-5 sm:px-6 lg:gap-12">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-6">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={slide.id}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.35 }}
+              className="order-2 text-center lg:order-1 lg:text-left"
             >
-              <Github className="w-5 h-5" />
-              <span className="sr-only">GitHub</span>
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/prince-kumar-00863b336" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="p-3 rounded-full border border-white/10 hover:border-[#22d3ee]/50 hover:text-[#22d3ee] transition-colors text-[#a1a1aa]"
-            >
-              <Linkedin className="w-5 h-5" />
-              <span className="sr-only">LinkedIn</span>
-            </a>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                {slide.kicker}
+              </p>
+              <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl">
+                {slide.title}
+              </h1>
+              <p className="mt-2 text-lg font-semibold text-slate-700 dark:text-slate-200 sm:text-xl">
+                {slide.role}
+              </p>
+              <p className="mt-4 text-base text-slate-600 dark:text-slate-300 sm:text-lg">
+                👉 {slide.tagline}
+              </p>
+              <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-slate-600 dark:text-slate-400 lg:mx-0">
+                {slide.body}
+              </p>
+
+              <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-start">
+                <a
+                  href="#projects"
+                  className="inline-flex min-w-[160px] items-center justify-center rounded-lg bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-slate-800 dark:bg-sky-500 dark:text-slate-950 dark:hover:bg-sky-400"
+                >
+                  View Projects
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex min-w-[160px] items-center justify-center rounded-lg border border-slate-300 bg-white/80 px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:border-slate-400 dark:border-slate-600 dark:bg-slate-900/60 dark:text-slate-100 dark:hover:border-slate-500"
+                >
+                  Contact Me
+                </a>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="order-1 flex justify-center lg:order-2">
+            <div className="relative flex flex-col items-center gap-4">
+              <div className="rounded-2xl border border-slate-200/80 bg-white/70 p-5 shadow-[0_20px_60px_-24px_rgba(15,23,42,0.35)] backdrop-blur-sm dark:border-slate-700/80 dark:bg-slate-900/50">
+                <Cube3D />
+              </div>
+              <p className="text-[10px] font-medium uppercase tracking-widest text-slate-400">
+                Lightweight CSS 3D
+              </p>
+            </div>
           </div>
-        </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.45 }}
+            className="order-3 flex justify-center lg:justify-end"
+          >
+            <div
+              className="relative h-52 w-52 overflow-hidden rounded-[2rem] border border-slate-200/90 bg-white shadow-[0_28px_80px_-32px_rgba(15,23,42,0.55)] dark:border-slate-600/80 dark:bg-slate-900 sm:h-60 sm:w-60"
+            >
+              <img
+                src={profileImg}
+                alt="Prince Kumar"
+                className="h-full w-full object-cover object-top"
+                width={480}
+                height={480}
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="flex items-center justify-center gap-4 pb-2">
+          <button
+            type="button"
+            onClick={prev}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-800 shadow-sm transition hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <div className="flex gap-2">
+            {slides.map((s, i) => (
+              <button
+                key={s.id}
+                type="button"
+                onClick={() => setIndex(i)}
+                className={`h-2 rounded-full transition-all ${
+                  i === index ? "w-8 bg-slate-900 dark:bg-sky-400" : "w-2 bg-slate-300 dark:bg-slate-600"
+                }`}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={next}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-800 shadow-sm transition hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+        </div>
       </div>
     </section>
   );

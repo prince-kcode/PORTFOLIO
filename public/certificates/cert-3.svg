@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#FAFAFA"/>
+  <rect x="56" y="56" width="688" height="488" rx="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+  <path d="M56 120H744" stroke="#0F172A" stroke-opacity="0.08"/>
+  <text x="400" y="190" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#0F172A">Git &amp; Collaboration</text>
+  <text x="400" y="235" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" fill="#64748B">Version control workflows and team practices</text>
+  <text x="400" y="310" text-anchor="middle" font-family="system-ui,sans-serif" font-size="21" font-weight="600" fill="#0F172A">Prince Kumar</text>
+  <rect x="260" y="380" width="280" height="1" fill="#CBD5E1"/>
+  <text x="400" y="420" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#94A3B8">GIT-COLLAB-2024</text>
+</svg>

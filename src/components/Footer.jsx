@@ -2,9 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="py-8 text-center border-t border-white/10">
-      <p className="text-[#a1a1aa] text-sm">
-        © {new Date().getFullYear()} Prince Kumar. Built with React & Vite.
+    <footer className="border-t border-slate-200/90 py-10 text-center text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
+      <p>
+        © {new Date().getFullYear()} Prince Kumar · React · Express · Built for production.
       </p>
     </footer>
   );

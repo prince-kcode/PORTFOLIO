@@ -1,0 +1,109 @@
+.cube-scene {
+  width: 88px;
+  height: 88px;
+  perspective: 420px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .cube-scene {
+    width: 104px;
+    height: 104px;
+  }
+}
+
+.cube-spin {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: cube-rotate 18s linear infinite;
+  will-change: transform;
+}
+
+.cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.cube-face {
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--cube-edge);
+  background: var(--cube-face);
+  color: var(--cube-text);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+@media (min-width: 640px) {
+  .cube-face {
+    width: 104px;
+    height: 104px;
+    font-size: 0.75rem;
+  }
+}
+
+.cube-face.front {
+  transform: rotateY(0deg) translateZ(44px);
+}
+.cube-face.back {
+  transform: rotateY(180deg) translateZ(44px);
+}
+.cube-face.right {
+  transform: rotateY(90deg) translateZ(44px);
+}
+.cube-face.left {
+  transform: rotateY(-90deg) translateZ(44px);
+}
+.cube-face.top {
+  transform: rotateX(90deg) translateZ(44px);
+}
+.cube-face.bottom {
+  transform: rotateX(-90deg) translateZ(44px);
+}
+
+@media (min-width: 640px) {
+  .cube-face.front {
+    transform: rotateY(0deg) translateZ(52px);
+  }
+  .cube-face.back {
+    transform: rotateY(180deg) translateZ(52px);
+  }
+  .cube-face.right {
+    transform: rotateY(90deg) translateZ(52px);
+  }
+  .cube-face.left {
+    transform: rotateY(-90deg) translateZ(52px);
+  }
+  .cube-face.top {
+    transform: rotateX(90deg) translateZ(52px);
+  }
+  .cube-face.bottom {
+    transform: rotateX(-90deg) translateZ(52px);
+  }
+}
+
+@keyframes cube-rotate {
+  from {
+    transform: rotateX(-18deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(-18deg) rotateY(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cube-spin {
+    animation: none;
+    transform: rotateX(-18deg) rotateY(32deg);
+  }
+}
