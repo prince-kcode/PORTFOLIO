@@ -25,22 +25,23 @@ const Home = () => {
           Prince Kumar
         </h1>
         <p className="mt-4 text-xl font-medium bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent sm:text-2xl">
-          Artificial Intelligence & Machine Learning Engineering Student
+          Artificial Intelligence &amp; Machine Learning Engineering Student
         </p>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-500">
-          Focused on building real-world AI systems and scalable applications.
+          Presidency University, Bengaluru &bull; 5th Semester (2024 &ndash; 2028) &bull; Focused on building real-world AI systems, IoT telemetry, and scalable web applications.
         </p>
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
             href="#projects"
-            className="inline-flex min-w-[200px] items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 px-8 py-3.5 font-semibold text-white shadow-lg shadow-indigo-300/40 transition-all hover:shadow-xl hover:shadow-indigo-400/50 hover:scale-105"
+            className="inline-flex min-w-[190px] items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 px-8 py-3.5 font-semibold !text-white shadow-lg shadow-indigo-300/40 transition-all hover:shadow-xl hover:shadow-indigo-400/50 hover:scale-105"
+            style={{ color: "#ffffff" }}
           >
             View Projects
           </a>
           <a
             href="mailto:princek8320@gmail.com"
-            className="inline-flex min-w-[200px] items-center justify-center rounded-full border-2 border-indigo-400 bg-white px-8 py-3.5 font-semibold text-indigo-600 shadow-sm transition-all hover:bg-indigo-50 hover:scale-105"
+            className="inline-flex min-w-[170px] items-center justify-center rounded-full border border-slate-200 bg-white px-8 py-3.5 font-semibold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:border-slate-300 hover:scale-105"
           >
             Contact Me
           </a>
