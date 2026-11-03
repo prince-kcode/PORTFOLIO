@@ -1,5 +1,6 @@
 import React from "react";
 import { CheckCircle, GraduationCap, Brain, Award, Trophy, Sparkles } from "lucide-react";
+import TiltCard from "./ui/TiltCard";
 
 const Resume = () => {
   const highlights = [
@@ -78,14 +79,16 @@ const Resume = () => {
           </p>
         </div>
 
-        {/* Highlights Grid with Mixed Color Theme */}
+        {/* Highlights Grid with 3D Tilt Cards */}
         <div className="grid gap-6 md:grid-cols-2">
           {highlights.map((h, i) => {
             const Icon = h.icon;
             return (
-              <div
+              <TiltCard
                 key={i}
-                className={`group rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${h.borderGlow}`}
+                maxTilt={8}
+                glare={true}
+                className={`group rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-xl ${h.borderGlow}`}
               >
                 <div className="flex items-center gap-3.5 mb-5">
                   <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${h.color} text-white shadow-md shadow-indigo-500/20 transition-transform group-hover:scale-110`}>
@@ -107,7 +110,7 @@ const Resume = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </TiltCard>
             );
           })}
         </div>

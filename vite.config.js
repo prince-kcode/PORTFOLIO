@@ -10,6 +10,15 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
+    chunkSizeWarningLimit: 1200,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ['three'],
+          vendor: ['react', 'react-dom', 'framer-motion', 'lucide-react'],
+        },
+      },
+    },
   },
   envPrefix: ['VITE_', 'REACT_APP_'],
 });

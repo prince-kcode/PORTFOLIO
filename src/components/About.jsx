@@ -1,5 +1,6 @@
 import React from "react";
-import { Brain, Cpu, Database, Radio, Sparkles, Terminal } from "lucide-react";
+import { Brain, Database, Radio, Sparkles, Terminal } from "lucide-react";
+import TiltCard from "./ui/TiltCard";
 
 const pillars = [
   {
@@ -53,14 +54,16 @@ const About = () => {
           </p>
         </div>
 
-        {/* 4 Pillars Grid with Mixed Colors */}
+        {/* 4 Pillars Grid with 3D Tilt Cards */}
         <div className="grid gap-6 sm:grid-cols-2">
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
-              <div
+              <TiltCard
                 key={idx}
-                className={`group rounded-2xl border border-slate-200/90 bg-white p-7 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${pillar.glow}`}
+                maxTilt={8}
+                glare={true}
+                className={`group rounded-2xl border border-slate-200/90 bg-white p-7 shadow-sm transition-all duration-300 hover:shadow-xl ${pillar.glow}`}
               >
                 <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${pillar.gradient} text-white shadow-md transition-transform group-hover:scale-110 mb-4`}>
                   <Icon className="h-6 w-6" />
@@ -71,7 +74,7 @@ const About = () => {
                 <p className="text-sm leading-relaxed text-slate-600">
                   {pillar.desc}
                 </p>
-              </div>
+              </TiltCard>
             );
           })}
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Github, ExternalLink, Trophy, Brain, Activity, Sparkles, FolderGit2 } from "lucide-react";
+import TiltCard from "./ui/TiltCard";
 
 const projects = [
   {
@@ -49,7 +50,7 @@ const projects = [
     roleBadge: "⚡ Live Production App",
     roleBadgeColor: "bg-cyan-100 text-cyan-900 border-cyan-300 font-semibold",
     description: "Ultra-fast, responsive web application showcasing engineering projects, academic credentials, verified certificates modal, and Web3Forms contact integration with automated GitHub Actions CI/CD deployment.",
-    tags: ["React.js", "Vite", "Tailwind CSS", "GitHub Actions", "Web3Forms"],
+    tags: ["React.js", "Three.js", "Tailwind CSS", "GitHub Actions", "Web3Forms"],
     github: "https://github.com/prince-kcode/PORTFOLIO",
     demo: "https://prince-kcode.github.io/PORTFOLIO/",
   },
@@ -69,18 +70,20 @@ const Projects = () => {
             Selected <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">AI &amp; Software Projects</span>
           </h2>
           <p className="mt-3 text-slate-600 max-w-2xl text-base sm:text-lg">
-            Featured work spanning national hackathon team leadership, predictive IoT telemetry, and Generative AI applications.
+            Featured work spanning national hackathon team leadership, predictive IoT telemetry, and Generative AI applications. Hover to explore 3D tilt interaction.
           </p>
         </div>
 
-        {/* Projects Grid with Mixed Color Theme */}
+        {/* Projects Grid with Interactive 3D Tilt Cards */}
         <div className="grid gap-7 md:grid-cols-2">
           {projects.map((project, idx) => {
             const Icon = project.icon;
             return (
-              <article
+              <TiltCard
                 key={idx}
-                className={`group flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${project.glow}`}
+                maxTilt={10}
+                glare={true}
+                className={`group flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-2xl ${project.glow}`}
               >
                 <div>
                   {/* Card Header with Mixed Gradient Badge */}
@@ -146,7 +149,7 @@ const Projects = () => {
                     )}
                   </div>
                 )}
-              </article>
+              </TiltCard>
             );
           })}
         </div>

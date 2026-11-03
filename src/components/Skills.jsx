@@ -1,5 +1,6 @@
 import React from "react";
-import { Brain, Database, Cpu, Wrench, Sparkles, Layers, Activity, GitBranch } from "lucide-react";
+import { Brain, Database, Cpu, Layers, Activity } from "lucide-react";
+import TiltCard from "./ui/TiltCard";
 
 const skillCategories = [
   {
@@ -46,10 +47,10 @@ const skillCategories = [
     description: "Connecting machine learning models to intuitive, lightning-fast web applications.",
     skills: [
       "React.js & Component Design",
+      "Three.js & 3D WebGL",
       "Tailwind CSS & Responsive UI",
       "JavaScript (ES6+) & DOM",
       "Node.js & Express APIs",
-      "RESTful Model Serving",
       "Vite & Modern Toolchains",
     ],
   },
@@ -90,14 +91,16 @@ const Skills = () => {
           </p>
         </div>
 
-        {/* 4 Cards Grid with Mixed Color Theme */}
+        {/* 4 Cards Grid with 3D Tilt Cards */}
         <div className="grid gap-6 md:grid-cols-2">
           {skillCategories.map((cat, idx) => {
             const Icon = cat.icon;
             return (
-              <div
+              <TiltCard
                 key={idx}
-                className={`group rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${cat.glow}`}
+                maxTilt={8}
+                glare={true}
+                className={`group rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-2xl ${cat.glow}`}
               >
                 {/* Header with Mixed Gradient */}
                 <div className="flex items-center justify-between gap-3 mb-4">
@@ -129,7 +132,7 @@ const Skills = () => {
                     </span>
                   ))}
                 </div>
-              </div>
+              </TiltCard>
             );
           })}
         </div>

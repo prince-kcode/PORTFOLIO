@@ -9,13 +9,15 @@ import Certificates from "./components/Certificates";
 import Resume from "./components/Resume";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ParticlesBackground from "./components/3d/ParticlesBackground";
 import "./App.css";
 
 function App() {
   return (
-    <div className="portfolio-app min-h-screen">
+    <div className="portfolio-app min-h-screen relative overflow-x-hidden">
+      <ParticlesBackground />
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <Home />
         <About />
         <Skills />
