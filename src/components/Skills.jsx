@@ -1,38 +1,74 @@
 import React from "react";
-import { Layout, Database, Cpu, Wrench } from "lucide-react";
+import { Brain, Database, Cpu, Wrench, Sparkles, Layers, Activity, GitBranch } from "lucide-react";
 
 const skillCategories = [
   {
-    title: "Frontend & UI Design",
-    icon: Layout,
-    color: "from-blue-500 to-cyan-500",
-    badgeColor: "bg-blue-50 text-blue-700 border-blue-200",
-    description: "Responsive layouts, intuitive component design, smooth animations, and clean user experience.",
-    skills: ["React.js", "Tailwind CSS", "JavaScript (ES6+)", "HTML5", "CSS3", "Responsive UI", "DOM & Async"],
+    title: "Artificial Intelligence & Deep Learning",
+    badge: "Core Specialization",
+    icon: Brain,
+    gradient: "from-purple-600 via-indigo-600 to-pink-600",
+    glow: "hover:border-purple-300",
+    badgeColor: "bg-purple-100 text-purple-800 border-purple-200",
+    description: "Designing neural architectures, generative models, and intelligent predictive algorithms.",
+    skills: [
+      "Neural Networks & CNNs",
+      "Generative AI & LLMs",
+      "Prompt Engineering",
+      "Computer Vision & OpenCV",
+      "Model Training & Evaluation",
+      "Transfer Learning & Embeddings",
+    ],
   },
   {
-    title: "Backend & Database",
+    title: "Data Science & ML Engineering",
+    badge: "Data Pipelines",
     icon: Database,
-    color: "from-emerald-500 to-teal-500",
-    badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
-    description: "Server architecture, RESTful API endpoints, relational database design, SQL queries, and normalization.",
-    skills: ["Node.js", "Express.js", "Python", "SQL", "Relational Databases", "RESTful APIs", "Schema Design"],
+    gradient: "from-emerald-500 via-teal-600 to-cyan-600",
+    glow: "hover:border-emerald-300",
+    badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200",
+    description: "End-to-end data pipelines, exploratory analysis, risk profiling, and database schemas.",
+    skills: [
+      "Python (NumPy, Pandas)",
+      "Scikit-Learn Modeling",
+      "Exploratory Data Analysis (EDA)",
+      "Risk Profiling & Delinquency",
+      "SQL & Relational Databases",
+      "Database Schema Design",
+    ],
   },
   {
-    title: "AI & Machine Learning",
-    icon: Cpu,
-    color: "from-purple-500 to-indigo-500",
-    badgeColor: "bg-purple-50 text-purple-700 border-purple-200",
-    description: "Applied machine learning fundamentals, intelligent systems, generative AI prompting, and IoT telemetry.",
-    skills: ["ML Foundations", "Neural Networks Basics", "Generative AI", "Prompt Engineering", "IoT Sensor Data"],
+    title: "Full-Stack ML Systems & UI",
+    badge: "Interactive Systems",
+    icon: Layers,
+    gradient: "from-blue-600 via-indigo-600 to-sky-600",
+    glow: "hover:border-blue-300",
+    badgeColor: "bg-blue-100 text-blue-800 border-blue-200",
+    description: "Connecting machine learning models to intuitive, lightning-fast web applications.",
+    skills: [
+      "React.js & Component Design",
+      "Tailwind CSS & Responsive UI",
+      "JavaScript (ES6+) & DOM",
+      "Node.js & Express APIs",
+      "RESTful Model Serving",
+      "Vite & Modern Toolchains",
+    ],
   },
   {
-    title: "Developer Tools & Workflow",
-    icon: Wrench,
-    color: "from-amber-500 to-orange-500",
-    badgeColor: "bg-amber-50 text-amber-700 border-amber-200",
-    description: "Modern build tooling, version control, API integrations, and developer environments.",
-    skills: ["Git & GitHub", "Vite", "VS Code", "Web3Forms API", "Linux Shell Basics", "GitHub Pages CI/CD"],
+    title: "Edge AI, IoT & MLOps Tooling",
+    badge: "Hardware & DevOps",
+    icon: Activity,
+    gradient: "from-amber-500 via-orange-500 to-rose-600",
+    glow: "hover:border-amber-300",
+    badgeColor: "bg-amber-100 text-amber-800 border-amber-200",
+    description: "Deploying intelligent telemetry to physical IoT sensors with automated CI/CD pipelines.",
+    skills: [
+      "IoT Hardware Telemetry",
+      "Real-time Sensor Streaming",
+      "Git & GitHub Version Control",
+      "GitHub Actions CI/CD",
+      "Linux Shell & Automation",
+      "Web3Forms Integration",
+    ],
   },
 ];
 
@@ -40,50 +76,56 @@ const Skills = () => {
   return (
     <section id="skills" className="scroll-mt-[var(--nav-h)] py-20 sm:py-24">
       <div className="mx-auto max-w-5xl px-5 sm:px-6">
+        {/* Section Header */}
         <div className="mb-12 text-center sm:text-left">
-          <p className="text-sm font-semibold uppercase tracking-widest bg-gradient-to-r from-teal-500 to-emerald-500 bg-clip-text text-transparent">
-            Expertise
-          </p>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl">
-            Technical Skills
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-teal-200 bg-teal-50/80 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-teal-700 shadow-sm mb-3">
+            <Cpu className="h-3.5 w-3.5 text-teal-600" />
+            Technical Stack
+          </div>
+          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+            AI &amp; ML <span className="bg-gradient-to-r from-teal-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent">Engineering Stack</span>
           </h2>
-          <p className="mt-3 text-slate-500 max-w-2xl">
-            Core competencies organized across Frontend &amp; UI, Backend &amp; Databases, Artificial Intelligence, and development workflows.
+          <p className="mt-3 text-slate-600 max-w-2xl text-base sm:text-lg">
+            Core competencies organized across Deep Learning, Data Analytics, Full-Stack ML Serving, and Hardware IoT Telemetry.
           </p>
         </div>
 
+        {/* 4 Cards Grid with Mixed Color Theme */}
         <div className="grid gap-6 md:grid-cols-2">
           {skillCategories.map((cat, idx) => {
             const Icon = cat.icon;
             return (
               <div
                 key={idx}
-                className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-7 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1"
+                className={`group rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${cat.glow}`}
               >
-                <div>
-                  <div className="flex items-center gap-3.5 mb-4">
-                    <div className={`flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br ${cat.color} text-white shadow-sm`}>
+                {/* Header with Mixed Gradient */}
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className={`flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br ${cat.gradient} text-white shadow-md shadow-indigo-500/20 transition-transform group-hover:scale-110`}>
                       <Icon className="h-5 w-5" />
                     </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-slate-800">{cat.title}</h3>
-                      <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[11px] font-semibold mt-0.5 ${cat.badgeColor}`}>
-                        Core Domain
-                      </span>
-                    </div>
+                    <h3 className="text-lg font-bold text-slate-800">
+                      {cat.title}
+                    </h3>
                   </div>
-                  <p className="text-sm text-slate-600 leading-relaxed mb-5">
-                    {cat.description}
-                  </p>
+                  <span className={`shrink-0 rounded-full border px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${cat.badgeColor}`}>
+                    {cat.badge}
+                  </span>
                 </div>
 
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-100">
-                  {cat.skills.map((s, sIdx) => (
+                <p className="text-sm leading-relaxed text-slate-600 mb-5">
+                  {cat.description}
+                </p>
+
+                {/* Skill Pills */}
+                <div className="flex flex-wrap gap-2">
+                  {cat.skills.map((skill) => (
                     <span
-                      key={sIdx}
-                      className="rounded-lg border border-slate-200/80 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700 shadow-2xs hover:bg-white hover:border-slate-300 transition"
+                      key={skill}
+                      className="rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1 text-xs font-medium text-slate-700 transition hover:border-indigo-300 hover:bg-indigo-50/50 hover:text-indigo-800"
                     >
-                      {s}
+                      {skill}
                     </span>
                   ))}
                 </div>
