@@ -26,10 +26,10 @@ const Resume = () => {
       accentText: "text-amber-800",
       title: "Hackathon Leadership & Projects",
       items: [
-        "Smart India Hackathon 2026 (Team Leader · Team NEURAFORGE) — Top 150 Teams Nationwide (AICTE / Presidency)",
+        "Smart India Hackathon 2026 (SIH26024) — Team Leader, Team NeuraForge (6 members): Designed ANUPALAN, an AI compliance-monitoring command centre for Coal India Ltd (310 mines, 14 subsidiaries) using RAG (pgvector), XGBoost, and YOLOv8",
         "Virtual Doctor with IoT — AI Health vitals monitoring, real-time telemetry & anomaly alerts",
         "GenAI Financial Chatbot & Analytics — Risk profiling & delinquency prediction (Tata & BCG X)",
-        "High-Performance Web Architectures — Responsive React, Vite, Node.js, and API integrations",
+        "High-Performance Web Architectures — Responsive React, Three.js 3D, Vite, Node.js, and API integrations",
       ],
     },
     {

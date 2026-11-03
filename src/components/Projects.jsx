@@ -4,16 +4,16 @@ import TiltCard from "./ui/TiltCard";
 
 const projects = [
   {
-    title: "Smart India Hackathon 2026 – Team NEURAFORGE",
-    role: "Team Leader · Top 150 Nationwide",
+    title: "ANUPALAN – AI Compliance & Governance Command Centre",
+    role: "Team Leader · Team NeuraForge (6 Members)",
     icon: Trophy,
-    category: "Hackathon Leadership & System Architecture",
+    category: "Smart India Hackathon 2026 (SIH26024)",
     gradient: "from-amber-500 via-orange-500 to-rose-600",
     glow: "hover:border-amber-300",
-    roleBadge: "👑 Team Leader · Top 150 Teams",
+    roleBadge: "👑 SIH 2026 · Team NeuraForge Leader",
     roleBadgeColor: "bg-amber-100 text-amber-900 border-amber-300 font-bold",
-    description: "Led Team NEURAFORGE as Team Leader to the Top 150 Teams nationwide at Smart India Hackathon 2026 (Internal, organized by Presidency Makerspace & AICTE). Directed system architecture and prototype engineering for real-world national technology challenges.",
-    tags: ["Team Leader", "SIH 2026", "System Architecture", "AI & IoT", "Top 150"],
+    description: "Led a 6-member team to design an enterprise AI compliance-monitoring system for Coal India Limited (310 mines, 14 subsidiaries); selected in the internal hackathon and awarded a Certificate of Appreciation by Presidency University. Architected a RAG engine (pgvector, sentence-transformers) converting mining regulations into tracked obligations with owners, deadlines, and evidence types. Integrated an XGBoost risk model and YOLOv8 image triage to flag violations and filter false reports, backed by an offline-first React Native app, FastAPI, PostgreSQL, and tamper-evident geotagged audit logs.",
+    tags: ["RAG (pgvector)", "Sentence-Transformers", "XGBoost", "YOLOv8", "FastAPI", "PostgreSQL", "React Native", "SIH26024"],
     github: "https://github.com/shreshav2404-code/SIH-2026",
   },
   {

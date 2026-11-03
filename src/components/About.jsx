@@ -50,7 +50,7 @@ const About = () => {
             I am an Artificial Intelligence &amp; Machine Learning Engineering student at <strong>Presidency University, Bengaluru (2024&ndash;2028)</strong>. I specialize in designing and deploying end-to-end intelligent systems &mdash; from raw data extraction and neural modeling to real-time IoT diagnostic telemetry.
           </p>
           <p className="mx-auto mt-3 max-w-3xl text-sm leading-relaxed text-slate-500 sm:text-base">
-            As Team Leader of <strong>NEURAFORGE</strong> (Top 150 Nationwide at Smart India Hackathon 2026), I lead cross-functional engineering teams to solve complex real-world challenges through data-driven AI engineering, algorithmic clarity, and robust full-stack deployment.
+            As Team Leader of <strong>Team NeuraForge</strong> (Project <strong>ANUPALAN</strong> &ndash; AI Compliance Command Centre for Coal India Limited, Smart India Hackathon 2026 SIH26024), I led a 6-member team engineering RAG search engines, XGBoost risk forecasting, and YOLOv8 image triage with tamper-evident audit logs.
           </p>
         </div>
 

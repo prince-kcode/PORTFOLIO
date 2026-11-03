@@ -4,17 +4,17 @@ import { Award, Trophy, ExternalLink, Download, Eye, X } from "lucide-react";
 const awardsData = [
   {
     id: "sih-2026",
-    title: "Smart India Hackathon 2026 – Top 150 Teams",
+    title: "ANUPALAN – Smart India Hackathon 2026 (SIH26024)",
     category: "Awards",
     issuer: "Presidency University · Ministry of Education & AICTE",
     date: "Sep 16–17, 2026",
-    badge: "👑 Team Leader · Top 150 Nationwide",
+    badge: "👑 Team Leader · Team NeuraForge",
     badgeColor: "bg-amber-100 text-amber-800 border-amber-200",
     gradient: "from-amber-500 via-orange-500 to-red-500",
     file: "097_NEURAFORGE_PRINCE_KUMAR.pdf",
     isPdf: true,
-    description: "Certificate of Appreciation awarded to Prince Kumar (Team Leader) and Team NEURAFORGE for outstanding team leadership, innovation, and developing technology-driven solutions to real-world challenges.",
-    skills: ["Team Leader", "Smart India Hackathon", "Team NEURAFORGE", "National Hackathon", "System Innovation"],
+    description: "Certificate of Appreciation awarded to Prince Kumar (Team Leader, 6-member Team NeuraForge) for Project ANUPALAN – AI Compliance and Governance Command Centre for Coal India Limited (310 mines, 14 subsidiaries). Selected in internal hackathon and submitted on the official SIH 2026 portal.",
+    skills: ["Team Leader", "ANUPALAN (SIH26024)", "RAG & pgvector", "Coal India Limited", "Team NeuraForge", "XGBoost & YOLOv8"],
   },
   {
     id: "google-gemini",

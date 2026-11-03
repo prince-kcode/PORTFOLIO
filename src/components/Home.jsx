@@ -9,13 +9,13 @@ const Home = () => {
   const aiPills = [
     { label: "Deep Learning & Neural Nets", color: "border-purple-200 bg-purple-50/80 text-purple-700" },
     { label: "Generative AI & LLMs", color: "border-pink-200 bg-pink-50/80 text-pink-700" },
-    { label: "Data Engineering & Analytics", color: "border-cyan-200 bg-cyan-800 text-cyan-800" },
+    { label: "RAG & Vector Search (pgvector)", color: "border-cyan-200 bg-cyan-50/80 text-cyan-800 font-semibold" },
     { label: "IoT Telemetry & Edge AI", color: "border-emerald-200 bg-emerald-50/80 text-emerald-800" },
-    { label: "SIH Team Leader · Top 150", color: "border-amber-200 bg-amber-50/80 text-amber-800 font-bold" },
+    { label: "SIH Team Leader · ANUPALAN (SIH26024)", color: "border-amber-200 bg-amber-50/80 text-amber-800 font-bold" },
   ];
 
   const statBadges = [
-    { value: "Top 150", label: "SIH 2026 Teams", gradient: "from-amber-500 to-orange-600" },
+    { value: "SIH 2026", label: "Team NeuraForge Leader", gradient: "from-amber-500 to-orange-600" },
     { value: "8+", label: "Verified Certifications", gradient: "from-purple-600 to-indigo-600" },
     { value: "5th Sem", label: "Presidency University", gradient: "from-cyan-600 to-blue-600" },
     { value: "AI & ML", label: "Engineering Focus", gradient: "from-emerald-500 to-teal-600" },
@@ -57,7 +57,7 @@ const Home = () => {
 
             {/* Value Proposition Description */}
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg mx-auto lg:mx-0">
-              Team Leader of <strong className="text-slate-800 font-semibold">NEURAFORGE</strong> (Smart India Hackathon 2026 Top 150 Nationwide). Building predictive AI neural models, real-time IoT diagnostic telemetry, and high-performance full-stack intelligence systems.
+              Team Leader of <strong className="text-slate-800 font-semibold">Team NeuraForge</strong> (Project <strong>ANUPALAN</strong> – AI Compliance Command Centre for Coal India Limited, Smart India Hackathon 2026 SIH26024). Architecting RAG engines, XGBoost risk models, computer vision triage, and real-time edge telemetry.
             </p>
 
             {/* AI & Tech Pills */}
