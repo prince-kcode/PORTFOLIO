@@ -12,14 +12,20 @@ export default function ParticlesBackground() {
     const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
     camera.position.z = 400;
 
-    const renderer = new THREE.WebGLRenderer({
-      alpha: true,
-      antialias: false,
-      powerPreference: "low-power",
-    });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-    container.appendChild(renderer.domElement);
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: false,
+        powerPreference: "low-power",
+      });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+      container.appendChild(renderer.domElement);
+    } catch (e) {
+      console.warn("WebGL background could not be initialized:", e);
+      return;
+    }
 
     // Particle Cloud
     const particleCount = 280;
