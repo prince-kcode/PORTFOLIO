@@ -8,7 +8,7 @@ const awardsData = [
     category: "Awards",
     issuer: "Presidency University · Ministry of Education & AICTE",
     date: "Sep 16–17, 2026",
-    badge: "👑 Team Leader · Team NeuraForge",
+    badge: "Team Leader · Team NeuraForge",
     badgeColor: "bg-amber-100 text-amber-800 border-amber-200",
     gradient: "from-amber-500 via-orange-500 to-red-500",
     file: "097_NEURAFORGE_PRINCE_KUMAR.pdf",

@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 
 export default function HeroScene3D() {
   const mountRef = useRef(null);
-  const [isInteracting, setIsInteracting] = useState(false);
 
   useEffect(() => {
     const container = mountRef.current;
@@ -23,7 +22,7 @@ export default function HeroScene3D() {
     let renderer;
     try {
       renderer = new THREE.WebGLRenderer({
-        antialias: !isMobile, // Disable MSAA on mobile for 60fps performance
+        antialias: !isMobile,
         alpha: true,
         powerPreference: isMobile ? "default" : "high-performance",
       });
@@ -128,7 +127,7 @@ export default function HeroScene3D() {
     scene.add(beacon1);
     scene.add(beacon2);
 
-    // 6. Cosmic Starfield / Neural Dust Particle Cloud (Optimized for Mobile)
+    // 6. Cosmic Starfield / Neural Dust Particle Cloud
     const particleCount = isMobile ? 240 : 650;
     const particleGeo = new THREE.BufferGeometry();
     const particlePos = new Float32Array(particleCount * 3);
@@ -189,8 +188,6 @@ export default function HeroScene3D() {
     const handlePointerDown = () => {
       pulseScale = 1.25;
       burstVelocity = 3.0;
-      setIsInteracting(true);
-      setTimeout(() => setIsInteracting(false), 800);
     };
 
     container.addEventListener("pointermove", handlePointerMove, { passive: true });
@@ -292,33 +289,13 @@ export default function HeroScene3D() {
   }, []);
 
   return (
-    <div className="relative w-full h-full min-h-[320px] sm:min-h-[440px] lg:min-h-[520px] flex items-center justify-center select-none">
-      {/* 3D WebGL Canvas Container with touch-pan-y so mobile users can scroll freely */}
+    <div className="relative w-full h-full min-h-[320px] sm:min-h-[440px] lg:min-h-[520px] flex items-center justify-center select-none overflow-hidden">
+      {/* 3D WebGL Canvas Container with zero overlapping tags */}
       <div
         ref={mountRef}
         className="w-full h-full absolute inset-0 cursor-grab active:cursor-grabbing touch-pan-y"
-        title="Interactive 3D AI Neural Core — Tap or drag to interact"
+        title="Interactive 3D AI Neural Core"
       />
-
-      {/* Floating Holographic Tech Tags */}
-      <div className="pointer-events-none absolute top-3 left-3 sm:top-4 sm:left-4 z-10 flex items-center gap-1.5 sm:gap-2 rounded-full border border-cyan-500/30 bg-slate-900/75 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-[11px] font-semibold text-cyan-300 backdrop-blur-md shadow-lg shadow-cyan-500/10">
-        <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
-        <span>3D Neural Nexus</span>
-      </div>
-
-      <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-10 hidden sm:flex items-center gap-2 rounded-full border border-purple-500/30 bg-slate-900/75 px-3 py-1 text-[11px] font-semibold text-purple-300 backdrop-blur-md shadow-lg shadow-purple-500/10">
-        <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-ping" />
-        <span>WebGL &bull; 60 FPS</span>
-      </div>
-
-      {/* Mobile-friendly Interaction Hint */}
-      <div
-        className={`pointer-events-none absolute -bottom-1 left-1/2 -translate-x-1/2 z-10 text-[10px] sm:text-[11px] font-medium transition-opacity duration-500 text-slate-300/90 bg-slate-900/70 px-3 py-0.5 rounded-full border border-slate-700/60 backdrop-blur-sm whitespace-nowrap ${
-          isInteracting ? "opacity-100 text-cyan-400 border-cyan-500/50" : "opacity-80"
-        }`}
-      >
-        {isInteracting ? "⚡ Shockwave Pulse Discharged" : "✦ Tap or drag to interact"}
-      </div>
     </div>
   );
 }
