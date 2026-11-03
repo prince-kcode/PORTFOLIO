@@ -134,7 +134,7 @@ const Home = () => {
                   <div className="relative h-32 w-32 sm:h-36 sm:w-36 overflow-hidden rounded-full border-4 border-white shadow-2xl ring-2 ring-indigo-300">
                     <img
                       src={profileImg}
-                      alt="Prince Kumar"
+                      alt="Prince Kumar - AI and ML Developer and Web Developer from Presidency University"
                       className="h-full w-full object-cover object-top"
                       width={144}
                       height={144}
