@@ -1,7 +1,10 @@
 import React from "react";
+import { Download } from "lucide-react";
 import profileImg from "../assets/profile.jpg";
 
 const Home = () => {
+  const resumeUrl = `${import.meta.env.BASE_URL}Prince_Kumar_Resume.pdf`;
+
   return (
     <section
       id="home"
@@ -33,15 +36,23 @@ const Home = () => {
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
-            href="#projects"
-            className="inline-flex min-w-[190px] items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 px-8 py-3.5 font-semibold !text-white shadow-lg shadow-indigo-300/40 transition-all hover:shadow-xl hover:shadow-indigo-400/50 hover:scale-105"
+            href={resumeUrl}
+            download="Prince_Kumar_Resume.pdf"
+            className="inline-flex min-w-[190px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 px-8 py-3.5 font-semibold !text-white shadow-lg shadow-indigo-300/40 transition-all hover:shadow-xl hover:shadow-indigo-400/50 hover:scale-105"
             style={{ color: "#ffffff" }}
+          >
+            <Download className="h-4 w-4" style={{ color: "#ffffff" }} />
+            Download Resume
+          </a>
+          <a
+            href="#projects"
+            className="inline-flex min-w-[170px] items-center justify-center rounded-full border border-slate-200 bg-white px-8 py-3.5 font-semibold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:border-slate-300 hover:scale-105"
           >
             View Projects
           </a>
           <a
             href="mailto:princek8320@gmail.com"
-            className="inline-flex min-w-[170px] items-center justify-center rounded-full border border-slate-200 bg-white px-8 py-3.5 font-semibold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:border-slate-300 hover:scale-105"
+            className="inline-flex min-w-[170px] items-center justify-center rounded-full border-2 border-indigo-400 bg-white px-8 py-3.5 font-semibold text-indigo-600 shadow-sm transition-all hover:bg-indigo-50 hover:scale-105"
           >
             Contact Me
           </a>

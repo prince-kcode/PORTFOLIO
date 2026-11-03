@@ -1,7 +1,9 @@
 import React from "react";
-import { CheckCircle, GraduationCap, Code2, Award, Briefcase } from "lucide-react";
+import { Download, ExternalLink, FileText, CheckCircle, GraduationCap, Code2, Award, Briefcase } from "lucide-react";
 
 const Resume = () => {
+  const resumeUrl = `${import.meta.env.BASE_URL}Prince_Kumar_Resume.pdf`;
+
   const highlights = [
     {
       icon: GraduationCap,
@@ -60,11 +62,33 @@ const Resume = () => {
             Resume &amp; Credentials
           </p>
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl">
-            Prince Kumar's Profile &amp; Highlights
+            Prince Kumar's Resume &amp; Profile
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-slate-500">
-            B.Tech CSE (AI &amp; ML) 5th Semester student at Presidency University (2024&ndash;2028). Explore career highlights, grouped competencies, and verified milestones below.
+            B.Tech CSE (AI &amp; ML) student at Presidency University. Download the official PDF resume or review career highlights below.
           </p>
+
+          {/* Action CTAs */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href={resumeUrl}
+              download="Prince_Kumar_Resume.pdf"
+              className="inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-7 py-3.5 text-sm font-semibold !text-white shadow-lg shadow-indigo-300/40 transition-all hover:shadow-xl hover:shadow-indigo-400/50 hover:scale-105"
+              style={{ color: "#ffffff" }}
+            >
+              <Download className="h-4 w-4" style={{ color: "#ffffff" }} />
+              Download Resume (PDF)
+            </a>
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-indigo-200 bg-white px-7 py-3.5 text-sm font-semibold text-indigo-700 shadow-sm transition-all hover:bg-indigo-50 hover:border-indigo-300 hover:scale-105"
+            >
+              <ExternalLink className="h-4 w-4" />
+              View PDF in Browser
+            </a>
+          </div>
         </div>
 
         {/* Highlights Grid */}
@@ -93,6 +117,41 @@ const Resume = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Resume Banner Card */}
+        <div className="mt-10 rounded-2xl border border-indigo-100 bg-white p-6 sm:p-8 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600 border border-indigo-100">
+              <FileText className="h-7 w-7" />
+            </div>
+            <div>
+              <h4 className="text-base font-bold text-slate-800">Prince_Kumar_Resume.pdf</h4>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Official PDF &bull; Software Developer &bull; AI/ML &bull; Presidency University
+              </p>
+            </div>
+          </div>
+          <div className="flex w-full sm:w-auto items-center gap-3">
+            <a
+              href={resumeUrl}
+              download="Prince_Kumar_Resume.pdf"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-2.5 text-xs font-semibold !text-white shadow transition hover:bg-slate-800"
+              style={{ color: "#ffffff" }}
+            >
+              <Download className="h-3.5 w-3.5" style={{ color: "#ffffff" }} />
+              Download
+            </a>
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-xs font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
+            >
+              <ExternalLink className="h-3.5 w-3.5" />
+              Open
+            </a>
+          </div>
         </div>
       </div>
     </section>
