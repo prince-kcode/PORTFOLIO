@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Menu, X, Github, Linkedin } from "lucide-react";
+import { Menu, X, Github, Linkedin, Download } from "lucide-react";
 import { useActiveSection } from "../hooks/useActiveSection";
 
 const sectionIds = ["home", "about", "skills", "projects", "education", "certificates", "contact"];
@@ -21,6 +21,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const active = useActiveSection(sectionIds);
+  const resumeUrl = `${import.meta.env.BASE_URL}Prince_Kumar_Resume.pdf`;
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 16);
@@ -56,8 +57,8 @@ const Navbar = () => {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
         
-        {/* Desktop Left Spacer (Balances the centered navigation) */}
-        <div className="hidden lg:flex w-24 items-center">
+        {/* Desktop Left Spacer (Balances layout for centered nav) */}
+        <div className="hidden lg:flex w-44 items-center">
           {/* No name on top left */}
         </div>
 
@@ -82,8 +83,18 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Desktop Right Socials */}
-        <div className="hidden items-center justify-end gap-2.5 lg:flex w-24">
+        {/* Desktop Right CTA: Resume Button & Socials */}
+        <div className="hidden items-center justify-end gap-2.5 lg:flex w-44">
+          <a
+            href={resumeUrl}
+            download="Prince_Kumar_Resume.pdf"
+            className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 px-4 py-1.5 text-xs font-semibold !text-white shadow-sm shadow-indigo-400/25 transition-all hover:shadow-md hover:scale-105"
+            style={{ color: "#ffffff" }}
+            title="Download Prince Kumar's Resume"
+          >
+            <Download className="h-3.5 w-3.5" style={{ color: "#ffffff" }} />
+            <span style={{ color: "#ffffff" }}>Resume</span>
+          </a>
           <a
             href={GITHUB_URL}
             target="_blank"
@@ -104,9 +115,18 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile Header: Clean layout without top-left name */}
+        {/* Mobile Header: Clean layout with Resume Button, Socials & Menu Toggle */}
         <div className="flex w-full items-center justify-between lg:hidden">
           <div className="flex items-center gap-2">
+            <a
+              href={resumeUrl}
+              download="Prince_Kumar_Resume.pdf"
+              className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-3 py-1.5 text-xs font-semibold !text-white shadow-sm"
+              style={{ color: "#ffffff" }}
+            >
+              <Download className="h-3 w-3" style={{ color: "#ffffff" }} />
+              <span style={{ color: "#ffffff" }}>Resume</span>
+            </a>
             <a
               href={GITHUB_URL}
               target="_blank"
@@ -160,6 +180,16 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
+            <div className="mt-2 border-t border-slate-100 pt-3">
+              <a
+                href={resumeUrl}
+                download="Prince_Kumar_Resume.pdf"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 py-2.5 text-sm font-semibold !text-white shadow-md"
+                style={{ color: "#ffffff" }}
+              >
+                <Download className="h-4 w-4" style={{ color: "#ffffff" }} /> Download Resume (PDF)
+              </a>
+            </div>
           </div>
         </div>
       )}
