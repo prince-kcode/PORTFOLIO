@@ -9,24 +9,26 @@ export default function HeroScene3D() {
     const container = mountRef.current;
     if (!container) return;
 
+    const isMobile = window.innerWidth < 768;
+
     // --- Scene, Camera, Renderer ---
     const scene = new THREE.Scene();
 
-    const width = container.clientWidth || 500;
-    const height = container.clientHeight || 500;
+    const width = container.clientWidth || 360;
+    const height = container.clientHeight || 360;
 
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
-    camera.position.set(0, 0, 11);
+    camera.position.set(0, 0, isMobile ? 12 : 11);
 
     let renderer;
     try {
       renderer = new THREE.WebGLRenderer({
-        antialias: true,
+        antialias: !isMobile, // Disable MSAA on mobile for 60fps performance
         alpha: true,
-        powerPreference: "high-performance",
+        powerPreference: isMobile ? "default" : "high-performance",
       });
       renderer.setSize(width, height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1.2;
       container.appendChild(renderer.domElement);
@@ -86,7 +88,7 @@ export default function HeroScene3D() {
     const pointsGeo = new THREE.IcosahedronGeometry(2.47, 1);
     const pointsMat = new THREE.PointsMaterial({
       color: 0x38bdf8,
-      size: 0.14,
+      size: isMobile ? 0.11 : 0.14,
       transparent: true,
       opacity: 0.95,
       blending: THREE.AdditiveBlending,
@@ -96,7 +98,7 @@ export default function HeroScene3D() {
 
     // 4. Gyroscopic Orbital Tech Rings
     const createRing = (radius, tube, color, rotX, rotY) => {
-      const ringGeo = new THREE.TorusGeometry(radius, tube, 16, 120);
+      const ringGeo = new THREE.TorusGeometry(radius, tube, 16, isMobile ? 70 : 120);
       const ringMat = new THREE.MeshStandardMaterial({
         color,
         emissive: color,
@@ -126,8 +128,8 @@ export default function HeroScene3D() {
     scene.add(beacon1);
     scene.add(beacon2);
 
-    // 6. Cosmic Starfield / Neural Dust Particle Cloud
-    const particleCount = 650;
+    // 6. Cosmic Starfield / Neural Dust Particle Cloud (Optimized for Mobile)
+    const particleCount = isMobile ? 240 : 650;
     const particleGeo = new THREE.BufferGeometry();
     const particlePos = new Float32Array(particleCount * 3);
     const particleColors = new Float32Array(particleCount * 3);
@@ -141,7 +143,7 @@ export default function HeroScene3D() {
     ];
 
     for (let i = 0; i < particleCount; i++) {
-      const radius = 3.5 + Math.random() * 8.5;
+      const radius = 3.5 + Math.random() * (isMobile ? 6.5 : 8.5);
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(Math.random() * 2 - 1);
 
@@ -159,7 +161,7 @@ export default function HeroScene3D() {
     particleGeo.setAttribute("color", new THREE.BufferAttribute(particleColors, 3));
 
     const particleMat = new THREE.PointsMaterial({
-      size: 0.08,
+      size: isMobile ? 0.07 : 0.08,
       vertexColors: true,
       transparent: true,
       opacity: 0.85,
@@ -168,7 +170,7 @@ export default function HeroScene3D() {
     const particleSystem = new THREE.Points(particleGeo, particleMat);
     scene.add(particleSystem);
 
-    // --- Interactive Mouse & Motion State ---
+    // --- Interactive Pointer Physics ---
     let mouseX = 0;
     let mouseY = 0;
     let targetX = 0;
@@ -186,13 +188,13 @@ export default function HeroScene3D() {
 
     const handlePointerDown = () => {
       pulseScale = 1.25;
-      burstVelocity = 3.2;
+      burstVelocity = 3.0;
       setIsInteracting(true);
       setTimeout(() => setIsInteracting(false), 800);
     };
 
-    container.addEventListener("pointermove", handlePointerMove);
-    container.addEventListener("pointerdown", handlePointerDown);
+    container.addEventListener("pointermove", handlePointerMove, { passive: true });
+    container.addEventListener("pointerdown", handlePointerDown, { passive: true });
 
     // --- Window Resize ---
     const handleResize = () => {
@@ -290,34 +292,33 @@ export default function HeroScene3D() {
   }, []);
 
   return (
-    <div className="relative w-full h-full min-h-[440px] sm:min-h-[520px] flex items-center justify-center select-none">
-      {/* 3D WebGL Canvas Container */}
+    <div className="relative w-full h-full min-h-[320px] sm:min-h-[440px] lg:min-h-[520px] flex items-center justify-center select-none">
+      {/* 3D WebGL Canvas Container with touch-pan-y so mobile users can scroll freely */}
       <div
         ref={mountRef}
-        className="w-full h-full absolute inset-0 cursor-grab active:cursor-grabbing touch-none"
-        title="Interactive 3D AI Neural Core — Drag or click to interact"
+        className="w-full h-full absolute inset-0 cursor-grab active:cursor-grabbing touch-pan-y"
+        title="Interactive 3D AI Neural Core — Tap or drag to interact"
       />
 
-      {/* Floating Holographic Tech Tags Orbiting the 3D Scene */}
-      <div className="pointer-events-none absolute top-4 left-4 z-10 hidden sm:flex items-center gap-2 rounded-full border border-cyan-500/30 bg-slate-900/70 px-3 py-1 text-[11px] font-semibold text-cyan-300 backdrop-blur-md shadow-lg shadow-cyan-500/10 animate-pulse">
-        <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-        <span>3D Neural Nexus Core</span>
+      {/* Floating Holographic Tech Tags */}
+      <div className="pointer-events-none absolute top-3 left-3 sm:top-4 sm:left-4 z-10 flex items-center gap-1.5 sm:gap-2 rounded-full border border-cyan-500/30 bg-slate-900/75 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-[11px] font-semibold text-cyan-300 backdrop-blur-md shadow-lg shadow-cyan-500/10">
+        <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
+        <span>3D Neural Nexus</span>
       </div>
 
-      <div className="pointer-events-none absolute bottom-4 right-4 z-10 hidden sm:flex items-center gap-2 rounded-full border border-purple-500/30 bg-slate-900/70 px-3 py-1 text-[11px] font-semibold text-purple-300 backdrop-blur-md shadow-lg shadow-purple-500/10">
+      <div className="pointer-events-none absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-10 hidden sm:flex items-center gap-2 rounded-full border border-purple-500/30 bg-slate-900/75 px-3 py-1 text-[11px] font-semibold text-purple-300 backdrop-blur-md shadow-lg shadow-purple-500/10">
         <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-ping" />
-        <span>Real-time WebGL &bull; Three.js</span>
+        <span>WebGL &bull; 60 FPS</span>
       </div>
 
-      {/* Interaction Hint */}
+      {/* Mobile-friendly Interaction Hint */}
       <div
-        className={`pointer-events-none absolute -bottom-1 left-1/2 -translate-x-1/2 z-10 text-[11px] font-medium transition-opacity duration-500 text-slate-400/80 bg-slate-900/60 px-3 py-0.5 rounded-full border border-slate-700/50 backdrop-blur-sm ${
-          isInteracting ? "opacity-100 text-cyan-400 border-cyan-500/50" : "opacity-70"
+        className={`pointer-events-none absolute -bottom-1 left-1/2 -translate-x-1/2 z-10 text-[10px] sm:text-[11px] font-medium transition-opacity duration-500 text-slate-300/90 bg-slate-900/70 px-3 py-0.5 rounded-full border border-slate-700/60 backdrop-blur-sm whitespace-nowrap ${
+          isInteracting ? "opacity-100 text-cyan-400 border-cyan-500/50" : "opacity-80"
         }`}
       >
-        {isInteracting ? "⚡ Energy Shockwave Discharged" : "✦ Move cursor or click core to interact"}
+        {isInteracting ? "⚡ Shockwave Pulse Discharged" : "✦ Tap or drag to interact"}
       </div>
     </div>
   );
 }
-

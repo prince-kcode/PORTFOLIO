@@ -46,12 +46,12 @@ const Home = () => {
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+            <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               Prince Kumar
             </h1>
 
             {/* Mixed Gradient Subheading */}
-            <p className="mt-3 text-xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent sm:text-2xl lg:text-3xl">
+            <p className="mt-3 text-lg font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent sm:text-2xl lg:text-3xl">
               Artificial Intelligence &amp; Machine Learning Engineer
             </p>
 
@@ -73,11 +73,11 @@ const Home = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4">
               <a
                 href={resumeUrl}
                 download="Prince_Kumar_Resume.pdf"
-                className="inline-flex min-w-[190px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 px-8 py-3.5 text-sm font-semibold !text-white shadow-lg shadow-indigo-400/30 transition-all hover:shadow-xl hover:shadow-purple-400/40 hover:scale-105"
+                className="inline-flex w-full sm:w-auto min-w-[190px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 px-7 py-3.5 text-sm font-semibold !text-white shadow-lg shadow-indigo-400/30 transition-all hover:shadow-xl hover:shadow-purple-400/40 hover:scale-105"
                 style={{ color: "#ffffff" }}
               >
                 <Download className="h-4 w-4" style={{ color: "#ffffff" }} />
@@ -85,14 +85,14 @@ const Home = () => {
               </a>
               <a
                 href="#projects"
-                className="inline-flex min-w-[170px] items-center justify-center gap-2 rounded-full border-2 border-indigo-200 bg-white px-8 py-3.5 text-sm font-semibold text-indigo-700 shadow-sm transition-all hover:bg-indigo-50 hover:border-indigo-400 hover:scale-105"
+                className="inline-flex w-full sm:w-auto min-w-[160px] items-center justify-center gap-2 rounded-full border-2 border-indigo-200 bg-white px-7 py-3.5 text-sm font-semibold text-indigo-700 shadow-sm transition-all hover:bg-indigo-50 hover:border-indigo-400 hover:scale-105"
               >
                 Explore Projects
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="mailto:princek8320@gmail.com"
-                className="inline-flex min-w-[150px] items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/90 px-8 py-3.5 text-sm font-semibold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:scale-105"
+                className="inline-flex w-full sm:w-auto min-w-[150px] items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/90 px-7 py-3.5 text-sm font-semibold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:scale-105"
               >
                 <Mail className="h-4 w-4" />
                 Contact Me

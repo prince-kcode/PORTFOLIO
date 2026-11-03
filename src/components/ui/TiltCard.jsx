@@ -1,16 +1,26 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 export default function TiltCard({
   children,
   className = "",
-  maxTilt = 12, // max tilt angle in degrees
+  maxTilt = 12,
   glare = true,
 }) {
   const cardRef = useRef(null);
   const [style, setStyle] = useState({});
   const [glareStyle, setGlareStyle] = useState({ opacity: 0 });
+  const [supportsHover, setSupportsHover] = useState(true);
+
+  useEffect(() => {
+    // Disable tilt on touch-only mobile devices to avoid jarring scroll stutter
+    if (typeof window !== "undefined") {
+      setSupportsHover(window.matchMedia("(hover: hover)").matches);
+    }
+  }, []);
 
   const handleMouseMove = (e) => {
+    if (!supportsHover) return;
+
     const card = cardRef.current;
     if (!card) return;
 
@@ -41,6 +51,8 @@ export default function TiltCard({
   };
 
   const handleMouseLeave = () => {
+    if (!supportsHover) return;
+
     setStyle({
       transform: "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)",
       transition: "transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)",
@@ -57,14 +69,14 @@ export default function TiltCard({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
-        transformStyle: "preserve-3d",
-        willChange: "transform",
+        transformStyle: supportsHover ? "preserve-3d" : "flat",
+        willChange: supportsHover ? "transform" : "auto",
         ...style,
       }}
       className={`relative overflow-hidden ${className}`}
     >
       {children}
-      {glare && (
+      {glare && supportsHover && (
         <div
           className="pointer-events-none absolute inset-0 z-20 transition-opacity"
           style={glareStyle}
@@ -74,4 +86,3 @@ export default function TiltCard({
     </div>
   );
 }
-

@@ -70,7 +70,7 @@ const Contact = () => {
               onChange={onChange}
               required
               autoComplete="name"
-              className="mt-1.5 w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100"
+              className="mt-1.5 w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-800 outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100"
             />
           </label>
           <label className="mt-5 block text-sm font-medium text-slate-700">
@@ -82,7 +82,7 @@ const Contact = () => {
               onChange={onChange}
               required
               autoComplete="email"
-              className="mt-1.5 w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100"
+              className="mt-1.5 w-full rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-800 outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100"
             />
           </label>
           <label className="mt-5 block text-sm font-medium text-slate-700">
@@ -93,7 +93,7 @@ const Contact = () => {
               onChange={onChange}
               required
               rows={5}
-              className="mt-1.5 w-full resize-y rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-slate-800 outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100"
+              className="mt-1.5 w-full resize-y rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-base text-slate-800 outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100"
             />
           </label>
 

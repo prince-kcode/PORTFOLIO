@@ -278,56 +278,56 @@ const Certificates = () => {
 
       {/* Modal Lightbox Preview */}
       {activePreview && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm">
-          <div className="relative flex max-h-[92vh] w-full max-w-4xl flex-col rounded-2xl bg-white shadow-2xl overflow-hidden">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-2 sm:p-4 backdrop-blur-sm">
+          <div className="relative flex max-h-[95vh] w-full max-w-4xl flex-col rounded-2xl bg-white shadow-2xl overflow-hidden">
             {/* Modal Header */}
-            <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
-              <div>
-                <h3 className="text-base font-bold text-slate-800">{activePreview.title}</h3>
-                <p className="text-xs text-slate-500">{activePreview.issuer} &bull; {activePreview.date}</p>
+            <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3 sm:px-6 sm:py-4">
+              <div className="pr-2">
+                <h3 className="text-sm sm:text-base font-bold text-slate-800 line-clamp-1">{activePreview.title}</h3>
+                <p className="text-[11px] sm:text-xs text-slate-500">{activePreview.issuer} &bull; {activePreview.date}</p>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 sm:gap-2 shrink-0">
                 <a
                   href={getFileUrl(activePreview.file)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-800"
+                  className="rounded-lg p-1.5 sm:p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-800"
                   title="Open in new tab"
                 >
-                  <ExternalLink className="h-5 w-5" />
+                  <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5" />
                 </a>
                 <a
                   href={getFileUrl(activePreview.file)}
                   download={activePreview.file}
-                  className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-800"
+                  className="rounded-lg p-1.5 sm:p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-800"
                   title="Download file"
                 >
-                  <Download className="h-5 w-5" />
+                  <Download className="h-4 w-4 sm:h-5 sm:w-5" />
                 </a>
                 <button
                   type="button"
                   onClick={() => setActivePreview(null)}
-                  className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-800"
+                  className="rounded-lg p-1.5 sm:p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-800"
                   aria-label="Close preview"
                 >
-                  <X className="h-5 w-5" />
+                  <X className="h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
               </div>
             </div>
 
             {/* Modal Content */}
-            <div className="flex-1 overflow-auto bg-slate-900/5 p-4 flex items-center justify-center min-h-[480px]">
+            <div className="flex-1 overflow-auto bg-slate-900/5 p-2 sm:p-4 flex items-center justify-center min-h-[280px] sm:min-h-[480px]">
               {activePreview.isPdf ? (
                 <iframe
                   src={getFileUrl(activePreview.file)}
                   title={activePreview.title}
-                  className="h-[65vh] w-full rounded-lg border border-slate-200 bg-white shadow-sm"
+                  className="h-[60vh] sm:h-[65vh] w-full rounded-lg border border-slate-200 bg-white shadow-sm"
                 />
               ) : (
                 <img
                   src={getFileUrl(activePreview.file)}
                   alt={activePreview.title}
-                  className="max-h-[65vh] max-w-full rounded-lg object-contain shadow-md"
+                  className="max-h-[60vh] sm:max-h-[65vh] max-w-full rounded-lg object-contain shadow-md"
                 />
               )}
             </div>
