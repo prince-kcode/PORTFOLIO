@@ -27,9 +27,10 @@ const Resume = () => {
       title: "Hackathon Leadership & Projects",
       items: [
         "Smart India Hackathon 2026 (SIH26024) — Team Leader, Team NeuraForge (6 members): Designed ANUPALAN, an AI compliance-monitoring command centre for Coal India Ltd (310 mines, 14 subsidiaries) using RAG (pgvector), XGBoost, and YOLOv8",
+        "AlphaRisk — GenAI financial risk analytics & conversational LLM chatbot with delinquency forecasting pipelines",
+        "EasyXray — Dual-model medical imaging pipeline (image verification gatekeeper + deep abnormality classifier) for low-cost patient screening",
+        "Smart Quality Inspection — Industrial computer vision platform trained on 3 defect datasets with dual-model surface scratch & defect detection",
         "Virtual Doctor with IoT — AI Health vitals monitoring, real-time telemetry & anomaly alerts",
-        "GenAI Financial Chatbot & Analytics — Risk profiling & delinquency prediction (Tata & BCG X)",
-        "High-Performance Web Architectures — Responsive React, Three.js 3D, Vite, Node.js, and API integrations",
       ],
     },
     {

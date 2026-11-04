@@ -1,5 +1,5 @@
 import React from "react";
-import { Github, ExternalLink, Trophy, Brain, Activity, Sparkles, FolderGit2 } from "lucide-react";
+import { Github, ExternalLink, Trophy, Brain, Activity, Sparkles, FolderGit2, Cpu } from "lucide-react";
 import TiltCard from "./ui/TiltCard";
 
 const projects = [
@@ -17,6 +17,45 @@ const projects = [
     github: "https://github.com/shreshav2404-code/SIH-2026",
   },
   {
+    title: "AlphaRisk – GenAI Financial Chatbot & Risk Analytics",
+    role: "Generative AI & Data Engineer",
+    icon: Brain,
+    category: "LLM Chatbots & Predictive Risk Modeling",
+    gradient: "from-purple-600 via-indigo-600 to-pink-600",
+    glow: "hover:border-purple-300",
+    roleBadge: "Generative AI & NLP",
+    roleBadgeColor: "bg-purple-100 text-purple-900 border-purple-300 font-semibold",
+    description: "Engineered an AI-powered conversational chatbot for corporate financial data exploration, combined with exploratory data analysis pipelines to forecast risk delinquency, evaluate solvency ratios, and synthesize automated executive risk reports (BCG X & Tata simulations).",
+    tags: ["Generative AI", "LLM Chatbot", "Prompt Engineering", "Risk Delinquency", "EDA & Pandas", "Python"],
+    github: "https://github.com/prince-kcode/AlphaRisk_finance_analyze",
+  },
+  {
+    title: "EasyXray – Dual-Model Medical AI Diagnostic System",
+    role: "Medical AI & Computer Vision Engineer",
+    icon: Activity,
+    category: "Healthcare AI & Deep Learning Vision",
+    gradient: "from-teal-500 via-cyan-600 to-emerald-600",
+    glow: "hover:border-teal-300",
+    roleBadge: "Healthcare AI Vision",
+    roleBadgeColor: "bg-teal-100 text-teal-900 border-teal-300 font-semibold",
+    description: "Designed an accessible healthcare diagnostic platform to provide patients with instant, cost-effective preliminary X-ray screenings prior to clinical consultations. Built an end-to-end dual-model deep learning pipeline: Model 1 operates as a verification gatekeeper to validate whether the input is a genuine medical X-ray, and Model 2 performs deep diagnostic analysis across clinical datasets to detect abnormalities, fractures, and pulmonary conditions.",
+    tags: ["Computer Vision", "Dual-Model Architecture", "Medical Imaging", "Deep Learning", "Healthcare AI", "Python"],
+    github: "https://github.com/prince-kcode/easy-xray",
+  },
+  {
+    title: "Smart Quality Inspection – Industrial Defect Detection System",
+    role: "Computer Vision & Quality Assurance Engineer",
+    icon: Cpu,
+    category: "Industrial AI & Surface Defect Vision",
+    gradient: "from-blue-600 via-indigo-600 to-violet-600",
+    glow: "hover:border-blue-300",
+    roleBadge: "Industrial AI Inspection",
+    roleBadgeColor: "bg-blue-100 text-blue-900 border-blue-300 font-semibold",
+    description: "Engineered an automated industrial computer vision inspection system for manufacturing lines to determine whether products meet commercial sale standards. Trained across 3 diverse industrial defect datasets utilizing a dual-model pipeline: Model 1 recognizes product category and structural boundaries, while Model 2 conducts fine-grained surface defect segmentation to detect scratches, fractures, and surface irregularities for automated quality pass/fail decisions.",
+    tags: ["Computer Vision", "Surface Defect Detection", "Dual-Model Pipeline", "Industrial QA", "Multi-Dataset Training", "Python"],
+    github: "https://github.com/prince-kcode/smartQualityInsoection-system",
+  },
+  {
     title: "Virtual Doctor with IoT & Predictive AI",
     role: "AI & IoT Telemetry Engineer",
     icon: Activity,
@@ -29,37 +68,25 @@ const projects = [
     tags: ["Python", "IoT Telemetry", "Predictive Analytics", "Sensor Streaming", "Web Dashboard"],
   },
   {
-    title: "GenAI Financial Chatbot & Risk Analytics",
-    role: "Generative AI & Data Engineer",
-    icon: Brain,
-    category: "LLM Chatbots & Predictive Risk Modeling",
-    gradient: "from-purple-600 via-indigo-600 to-pink-600",
-    glow: "hover:border-purple-300",
-    roleBadge: "Generative AI & NLP",
-    roleBadgeColor: "bg-purple-100 text-purple-900 border-purple-300 font-semibold",
-    description: "Engineered an AI-powered conversational chatbot for financial data exploration, combined with exploratory data analysis pipelines to forecast risk delinquency and synthesize automated executive reports (BCG X & Tata simulations).",
-    tags: ["Generative AI", "LLM Chatbot", "Prompt Engineering", "Risk Delinquency", "EDA & Pandas"],
-  },
-  {
-    title: "Interactive Full-Stack Developer Platform",
-    role: "Full-Stack Architect & Designer",
+    title: "Interactive 3D WebGL Developer Platform",
+    role: "Full-Stack Architect & 3D Designer",
     icon: Sparkles,
-    category: "Modern Web Engineering",
+    category: "Modern Web Engineering & 3D WebGL",
     gradient: "from-cyan-500 via-blue-600 to-indigo-600",
     glow: "hover:border-cyan-300",
     roleBadge: "Live Production App",
     roleBadgeColor: "bg-cyan-100 text-cyan-900 border-cyan-300 font-semibold",
-    description: "Ultra-fast, responsive web application showcasing engineering projects, academic credentials, verified certificates modal, and Web3Forms contact integration with automated GitHub Actions CI/CD deployment.",
-    tags: ["React.js", "Three.js", "Tailwind CSS", "GitHub Actions", "Web3Forms"],
+    description: "High-performance 3D developer platform featuring real-time WebGL Three.js AI neural nexus scene, interactive 3D perspective tilt cards, verified certificate viewer modal, and automated GitHub Actions CI/CD with Vercel deployment.",
+    tags: ["React.js", "Three.js", "Tailwind CSS", "GitHub Actions", "Vercel", "Web3Forms"],
     github: "https://github.com/prince-kcode/PORTFOLIO",
-    demo: "https://prince-kcode.github.io/PORTFOLIO/",
+    demo: "https://portfolio-princepandit.vercel.app/",
   },
 ];
 
 const Projects = () => {
   return (
     <section id="projects" className="scroll-mt-[var(--nav-h)] py-20 sm:py-24 bg-gradient-to-b from-white/70 via-slate-50/50 to-white/70">
-      <div className="mx-auto max-w-5xl px-5 sm:px-6">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
         {/* Section Header */}
         <div className="mb-12 text-center sm:text-left">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50/80 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-blue-700 shadow-sm mb-3">
@@ -70,7 +97,7 @@ const Projects = () => {
             Selected <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">AI &amp; Software Projects</span>
           </h2>
           <p className="mt-3 text-slate-600 max-w-2xl text-base sm:text-lg">
-            Featured work spanning national hackathon team leadership, predictive IoT telemetry, and Generative AI applications. Hover to explore 3D tilt interaction.
+            Featured work spanning national hackathon team leadership, dual-model computer vision, medical diagnostic AI, and Generative AI applications. Hover to explore 3D tilt interaction.
           </p>
         </div>
 
