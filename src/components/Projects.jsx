@@ -17,7 +17,7 @@ const projects = [
     github: "https://github.com/shreshav2404-code/SIH-2026",
   },
   {
-    title: "AlphaRisk – GenAI Financial Chatbot & Risk Analytics",
+    title: "AlphaRisk – On-Device Neural AI & Risk Analytics",
     role: "Generative AI & Data Engineer",
     icon: Brain,
     category: "LLM Chatbots & Predictive Risk Modeling",
@@ -26,8 +26,9 @@ const projects = [
     roleBadge: "Generative AI & NLP",
     roleBadgeColor: "bg-purple-100 text-purple-900 border-purple-300 font-semibold",
     description: "Engineered an AI-powered conversational chatbot for corporate financial data exploration, combined with exploratory data analysis pipelines to forecast risk delinquency, evaluate solvency ratios, and synthesize automated executive risk reports (BCG X & Tata simulations).",
-    tags: ["Generative AI", "LLM Chatbot", "Prompt Engineering", "Risk Delinquency", "EDA & Pandas", "Python"],
+    tags: ["Generative AI", "Streamlit Cloud", "On-Device Neural AI", "Risk Delinquency", "EDA & Pandas", "Python"],
     github: "https://github.com/prince-kcode/AlphaRisk_finance_analyze",
+    demo: "https://alphariskfinanceanalyze-caukwqbyaflqjrcuckmscz.streamlit.app/",
   },
   {
     title: "EasyXray – Dual-Model Medical AI Diagnostic System",
