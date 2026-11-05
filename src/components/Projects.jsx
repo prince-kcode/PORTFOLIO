@@ -53,8 +53,9 @@ const projects = [
     roleBadge: "Industrial AI Inspection",
     roleBadgeColor: "bg-blue-100 text-blue-900 border-blue-300 font-semibold",
     description: "Engineered an automated industrial computer vision inspection system for manufacturing lines to determine whether products meet commercial sale standards. Trained across 3 diverse industrial defect datasets utilizing a dual-model pipeline: Model 1 recognizes product category and structural boundaries, while Model 2 conducts fine-grained surface defect segmentation to detect scratches, fractures, and surface irregularities for automated quality pass/fail decisions.",
-    tags: ["Computer Vision", "Surface Defect Detection", "Dual-Model Pipeline", "Industrial QA", "Multi-Dataset Training", "Python"],
+    tags: ["Computer Vision", "Streamlit Cloud", "Surface Defect Detection", "Dual-Model Pipeline", "Industrial QA", "Python"],
     github: "https://github.com/prince-kcode/smartQualityInsoection-system",
+    demo: "https://smartqualityinsoection-system-jyrerk3hasabmogbafcxjj.streamlit.app/",
   },
   {
     title: "Virtual Doctor with IoT & Predictive AI",
