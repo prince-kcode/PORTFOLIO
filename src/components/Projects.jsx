@@ -40,8 +40,9 @@ const projects = [
     roleBadge: "Healthcare AI Vision",
     roleBadgeColor: "bg-teal-100 text-teal-900 border-teal-300 font-semibold",
     description: "Designed an accessible healthcare diagnostic platform to provide patients with instant, cost-effective preliminary X-ray screenings prior to clinical consultations. Built an end-to-end dual-model deep learning pipeline: Model 1 operates as a verification gatekeeper to validate whether the input is a genuine medical X-ray, and Model 2 performs deep diagnostic analysis across clinical datasets to detect abnormalities, fractures, and pulmonary conditions.",
-    tags: ["Computer Vision", "Dual-Model Architecture", "Medical Imaging", "Deep Learning", "Healthcare AI", "Python"],
+    tags: ["Computer Vision", "Streamlit Cloud", "Dual-Model Architecture", "Grad-CAM Explainability", "Healthcare AI", "Python"],
     github: "https://github.com/prince-kcode/easy-xray",
+    demo: "https://easy-xray-fdjmjrpq4hxj2vpajkmnsr.streamlit.app/",
   },
   {
     title: "Smart Quality Inspection – Industrial Defect Detection System",
