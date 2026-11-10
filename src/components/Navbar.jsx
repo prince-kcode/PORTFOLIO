@@ -115,83 +115,113 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile Header: Clean layout with Resume Button, Socials & Menu Toggle */}
+        {/* Mobile Header: Clean layout with Brand Logo, Resume Button & Menu Toggle */}
         <div className="flex w-full items-center justify-between lg:hidden">
+          <a
+            href="#home"
+            onClick={scrollToTop}
+            className="flex items-center gap-2 text-slate-800 font-bold text-sm tracking-tight active:scale-95 transition-transform"
+            aria-label="Prince Kumar - Home"
+          >
+            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-tr from-indigo-600 to-purple-600 text-white shadow-sm font-extrabold text-xs">
+              PK
+            </span>
+            <span className="font-bold text-slate-900 text-sm">
+              Prince Kumar
+            </span>
+          </a>
+
           <div className="flex items-center gap-2">
             <a
               href={resumeUrl}
               download="Prince_Kumar_Resume.pdf"
-              className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-3 py-1.5 text-xs font-semibold !text-white shadow-sm"
+              className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-3.5 py-1.5 text-xs font-semibold !text-white shadow-sm shadow-indigo-400/20 active:scale-95 transition-transform"
               style={{ color: "#ffffff" }}
+              title="Download Resume"
             >
               <Download className="h-3 w-3" style={{ color: "#ffffff" }} />
               <span style={{ color: "#ffffff" }}>Resume</span>
             </a>
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200/80 bg-white/90 text-slate-600 shadow-2xs"
-              aria-label="GitHub"
-            >
-              <Github className="h-4 w-4" />
-            </a>
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200/80 bg-white/90 text-slate-600 shadow-2xs"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-4 w-4" />
-            </a>
-          </div>
 
-          <button
-            type="button"
-            className="rounded-xl border border-slate-200 bg-white/90 p-2 text-slate-700 shadow-2xs"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+            <button
+              type="button"
+              className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200/90 bg-white/90 text-slate-700 shadow-2xs active:scale-95 transition-transform"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer Backdrop & Menu */}
       {mobileMenuOpen && (
-        <div className="border-b border-slate-200/80 bg-white/95 px-5 py-4 shadow-xl backdrop-blur-xl lg:hidden">
-          <div className="flex flex-col gap-1.5">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => {
-                  setMobileMenuOpen(false);
-                  if (link.href === "#home") scrollToTop(e);
-                }}
-                className={`rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
-                  active === link.id
-                    ? "bg-gradient-to-r from-indigo-600 to-purple-600 !text-white shadow-md shadow-indigo-300/30"
-                    : "text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
-                }`}
-                style={active === link.id ? { color: "#ffffff" } : undefined}
-              >
-                {link.name}
-              </a>
-            ))}
-            <div className="mt-2 border-t border-slate-100 pt-3">
-              <a
-                href={resumeUrl}
-                download="Prince_Kumar_Resume.pdf"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 py-2.5 text-sm font-semibold !text-white shadow-md"
-                style={{ color: "#ffffff" }}
-              >
-                <Download className="h-4 w-4" style={{ color: "#ffffff" }} /> Download Resume (PDF)
-              </a>
+        <>
+          <div
+            className="fixed inset-0 z-40 bg-slate-900/30 backdrop-blur-xs lg:hidden"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="relative z-50 border-b border-slate-200/80 bg-white/95 px-5 py-4 shadow-xl backdrop-blur-xl lg:hidden max-h-[calc(100vh-var(--nav-h))] overflow-y-auto">
+            <div className="flex flex-col gap-1">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    if (link.href === "#home") scrollToTop(e);
+                  }}
+                  className={`flex min-h-[44px] items-center rounded-xl px-4 py-2.5 text-sm font-semibold transition-all active:scale-[0.98] ${
+                    active === link.id
+                      ? "bg-gradient-to-r from-indigo-600 to-purple-600 !text-white shadow-md shadow-indigo-300/30"
+                      : "text-slate-700 hover:bg-slate-50 active:bg-slate-100 hover:text-indigo-600"
+                  }`}
+                  style={active === link.id ? { color: "#ffffff" } : undefined}
+                >
+                  {link.name}
+                </a>
+              ))}
+
+              {/* Mobile Socials & Full Resume CTA inside Drawer */}
+              <div className="mt-3 border-t border-slate-100 pt-3 flex flex-col gap-2.5">
+                <a
+                  href={resumeUrl}
+                  download="Prince_Kumar_Resume.pdf"
+                  className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 py-2.5 text-sm font-semibold !text-white shadow-md active:scale-[0.98] transition-transform"
+                  style={{ color: "#ffffff" }}
+                >
+                  <Download className="h-4 w-4" style={{ color: "#ffffff" }} /> Download Resume (PDF)
+                </a>
+
+                <div className="grid grid-cols-2 gap-2 pt-1">
+                  <a
+                    href={GITHUB_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-[40px] items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2 text-xs font-semibold text-slate-700 active:bg-slate-100"
+                    aria-label="GitHub Profile"
+                  >
+                    <Github className="h-4 w-4 text-slate-800" />
+                    <span>GitHub</span>
+                  </a>
+                  <a
+                    href={LINKEDIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-[40px] items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2 text-xs font-semibold text-slate-700 active:bg-slate-100"
+                    aria-label="LinkedIn Profile"
+                  >
+                    <Linkedin className="h-4 w-4 text-blue-600" />
+                    <span>LinkedIn</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </header>
   );

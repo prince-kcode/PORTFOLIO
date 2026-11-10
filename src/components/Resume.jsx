@@ -64,24 +64,24 @@ const Resume = () => {
   ];
 
   return (
-    <section id="resume" className="scroll-mt-[var(--nav-h)] py-20 sm:py-24 bg-gradient-to-b from-white via-indigo-50/30 to-purple-50/20">
-      <div className="mx-auto max-w-5xl px-5 sm:px-6">
+    <section id="resume" className="scroll-mt-[var(--nav-h)] py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-indigo-50/30 to-purple-50/20">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
         {/* Section Header */}
-        <div className="mb-12 text-center">
+        <div className="mb-9 sm:mb-12 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-purple-50 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-purple-700 shadow-sm mb-3">
             <Sparkles className="h-3.5 w-3.5 text-purple-600" />
             AI &amp; ML Engineer Profile
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-slate-800 sm:text-4xl lg:text-5xl">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-800">
             Prince Kumar's <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Professional Profile</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-slate-600 sm:text-lg">
+          <p className="mx-auto mt-2.5 sm:mt-4 max-w-2xl text-sm sm:text-lg text-slate-600">
             B.Tech CSE (AI &amp; ML) student at Presidency University. A snapshot of specialized domains, applied AI &amp; ML systems, and engineering achievements.
           </p>
         </div>
 
         {/* Highlights Grid with 3D Tilt Cards */}
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
           {highlights.map((h, i) => {
             const Icon = h.icon;
             return (
@@ -89,23 +89,23 @@ const Resume = () => {
                 key={i}
                 maxTilt={8}
                 glare={true}
-                className={`group rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-xl ${h.borderGlow}`}
+                className={`group rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-7 md:p-8 shadow-sm transition-all duration-300 hover:shadow-xl ${h.borderGlow}`}
               >
-                <div className="flex items-center gap-3.5 mb-5">
-                  <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${h.color} text-white shadow-md shadow-indigo-500/20 transition-transform group-hover:scale-110`}>
-                    <Icon className="h-6 w-6" />
+                <div className="flex items-center gap-3 sm:gap-3.5 mb-4 sm:mb-5">
+                  <div className={`flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${h.color} text-white shadow-md shadow-indigo-500/20 transition-transform group-hover:scale-110`}>
+                    <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
                   <div>
-                    <span className={`text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${h.accentBg} ${h.accentText}`}>
+                    <span className={`text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${h.accentBg} ${h.accentText}`}>
                       Domain Pillar 0{i + 1}
                     </span>
-                    <h3 className="text-lg font-bold text-slate-800 mt-0.5">{h.title}</h3>
+                    <h3 className="text-base sm:text-lg font-bold text-slate-800 mt-0.5">{h.title}</h3>
                   </div>
                 </div>
 
-                <ul className="space-y-3">
+                <ul className="space-y-2.5 sm:space-y-3">
                   {h.items.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-600 leading-relaxed">
+                    <li key={idx} className="flex items-start gap-2 sm:gap-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
                       <CheckCircle className="h-4 w-4 shrink-0 text-indigo-500 mt-0.5" />
                       <span>{item}</span>
                     </li>

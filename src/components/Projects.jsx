@@ -88,24 +88,24 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="scroll-mt-[var(--nav-h)] py-20 sm:py-24 bg-gradient-to-b from-white/70 via-slate-50/50 to-white/70">
-      <div className="mx-auto max-w-6xl px-5 sm:px-6">
+    <section id="projects" className="scroll-mt-[var(--nav-h)] py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-white/70 via-slate-50/50 to-white/70">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {/* Section Header */}
-        <div className="mb-12 text-center sm:text-left">
+        <div className="mb-9 sm:mb-12 text-center sm:text-left">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50/80 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-blue-700 shadow-sm mb-3">
             <FolderGit2 className="h-3.5 w-3.5 text-blue-600" />
             Engineering Portfolio
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
             Selected <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">AI &amp; Software Projects</span>
           </h2>
-          <p className="mt-3 text-slate-600 max-w-2xl text-base sm:text-lg">
+          <p className="mt-2.5 sm:mt-3 text-slate-600 max-w-2xl text-sm sm:text-lg">
             Featured work spanning national hackathon team leadership, dual-model computer vision, medical diagnostic AI, and Generative AI applications. Hover to explore 3D tilt interaction.
           </p>
         </div>
 
         {/* Projects Grid with Interactive 3D Tilt Cards */}
-        <div className="grid gap-7 md:grid-cols-2">
+        <div className="grid gap-5 sm:gap-7 md:grid-cols-2">
           {projects.map((project, idx) => {
             const Icon = project.icon;
             return (
@@ -113,15 +113,15 @@ const Projects = () => {
                 key={idx}
                 maxTilt={10}
                 glare={true}
-                className={`group flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-2xl ${project.glow}`}
+                className={`group flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-7 md:p-8 shadow-sm transition-all duration-300 hover:shadow-2xl ${project.glow}`}
               >
                 <div>
                   {/* Card Header with Mixed Gradient Badge */}
-                  <div className="flex items-center justify-between gap-3 mb-4">
-                    <div className={`flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br ${project.gradient} text-white shadow-md transition-transform group-hover:scale-110`}>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 mb-3.5 sm:mb-4">
+                    <div className={`flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-gradient-to-br ${project.gradient} text-white shadow-md transition-transform group-hover:scale-110`}>
                       <Icon className="h-5 w-5" />
                     </div>
-                    <span className={`rounded-full border px-3 py-1 text-xs ${project.roleBadgeColor}`}>
+                    <span className={`self-start sm:self-center rounded-full border px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs ${project.roleBadgeColor}`}>
                       {project.roleBadge}
                     </span>
                   </div>
@@ -130,20 +130,20 @@ const Projects = () => {
                     {project.category}
                   </span>
 
-                  <h3 className="text-xl font-bold text-slate-900 mt-1 mb-2.5">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mt-1 mb-2">
                     {project.title}
                   </h3>
 
-                  <p className="text-sm leading-relaxed text-slate-600 mb-5">
+                  <p className="text-xs sm:text-sm leading-relaxed text-slate-600 mb-4 sm:mb-5">
                     {project.description}
                   </p>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-6">
+                  <div className="flex flex-wrap gap-1 sm:gap-1.5 mb-5 sm:mb-6">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700"
+                        className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] sm:text-xs font-medium text-slate-700"
                       >
                         {tag}
                       </span>
@@ -153,16 +153,16 @@ const Projects = () => {
 
                 {/* Card Footer Links */}
                 {(project.github || project.demo) && (
-                  <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-3.5 sm:pt-4 border-t border-slate-100">
                     {project.github && (
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 hover:border-slate-300"
+                        className="inline-flex flex-1 sm:flex-initial min-h-[40px] items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 sm:px-3.5 py-2 text-xs font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 hover:border-slate-300 active:scale-95"
                       >
                         <Github className="h-4 w-4" />
-                        Code Repository
+                        <span>Code Repository</span>
                       </a>
                     )}
                     {project.demo && (
@@ -170,11 +170,11 @@ const Projects = () => {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 px-3.5 py-2 text-xs font-semibold !text-white shadow-sm transition hover:shadow-md hover:scale-105"
+                        className="inline-flex flex-1 sm:flex-initial min-h-[40px] items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 px-3 sm:px-3.5 py-2 text-xs font-semibold !text-white shadow-sm transition hover:shadow-md hover:scale-105 active:scale-95"
                         style={{ color: "#ffffff" }}
                       >
                         <ExternalLink className="h-4 w-4" style={{ color: "#ffffff" }} />
-                        Live Demo
+                        <span>Live Demo</span>
                       </a>
                     )}
                   </div>

@@ -24,7 +24,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="relative flex min-h-[min(100vh,1000px)] flex-col justify-center overflow-hidden px-5 pt-[calc(var(--nav-h)+24px)] pb-16 sm:px-6 lg:px-8"
+      className="relative flex min-h-[min(100vh,1000px)] flex-col justify-center overflow-hidden px-4 sm:px-6 lg:px-8 pt-[calc(var(--nav-h)+14px)] pb-12 sm:pb-16"
     >
       {/* Mixed Color Ambient Glow Orbs in Background */}
       <div className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[500px] w-[650px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-indigo-300/30 via-purple-300/25 to-pink-300/25 blur-3xl" />
@@ -33,16 +33,16 @@ const Home = () => {
 
       <div className="mx-auto max-w-7xl w-full">
         {/* Main Grid: Left Column Text & CTAs / Right Column 3D Scene */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
           
           {/* Left Column (Content & CTAs) */}
           <div className="lg:col-span-7 text-center lg:text-left order-2 lg:order-1">
             
             {/* AI & ML Status Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-purple-200 bg-white/90 px-4 py-1.5 text-xs font-semibold text-slate-800 shadow-sm backdrop-blur-md mb-4 transition hover:scale-105">
-              <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              <Brain className="h-3.5 w-3.5 text-purple-600" />
-              <span>AI &amp; ML Engineer &bull; Presidency University (2024&ndash;2028)</span>
+            <div className="inline-flex max-w-full items-center gap-1.5 sm:gap-2 rounded-full border border-purple-200 bg-white/90 px-3.5 py-1 sm:px-4 sm:py-1.5 text-[11px] sm:text-xs font-semibold text-slate-800 shadow-sm backdrop-blur-md mb-3 sm:mb-4 transition hover:scale-105">
+              <span className="flex h-2 w-2 shrink-0 rounded-full bg-emerald-500 animate-pulse" />
+              <Brain className="h-3.5 w-3.5 shrink-0 text-purple-600" />
+              <span className="truncate">AI &amp; ML Engineer &bull; Presidency University (2024&ndash;2028)</span>
             </div>
 
             {/* Headline */}
@@ -51,21 +51,21 @@ const Home = () => {
             </h1>
 
             {/* Mixed Gradient Subheading */}
-            <p className="mt-3 text-lg font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent sm:text-2xl lg:text-3xl">
+            <p className="mt-2.5 sm:mt-3 text-base font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent sm:text-2xl lg:text-3xl">
               Artificial Intelligence &amp; Machine Learning Engineer
             </p>
 
             {/* Value Proposition Description */}
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg mx-auto lg:mx-0">
+            <p className="mt-3.5 sm:mt-4 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-lg mx-auto lg:mx-0">
               Team Leader of <strong className="text-slate-800 font-semibold">Team NeuraForge</strong> (Project <strong>ANUPALAN</strong> – AI Compliance Command Centre for Coal India Limited, Smart India Hackathon 2026 SIH26024). Architecting RAG engines, XGBoost risk models, computer vision triage, and real-time edge telemetry.
             </p>
 
             {/* AI & Tech Pills */}
-            <div className="mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-2">
+            <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-1.5 sm:gap-2">
               {aiPills.map((pill, idx) => (
                 <span
                   key={idx}
-                  className={`rounded-full border px-3 py-1 text-xs font-medium shadow-sm transition hover:scale-105 ${pill.color}`}
+                  className={`rounded-full border px-2.5 py-1 text-[11px] sm:text-xs font-medium shadow-sm transition hover:scale-105 ${pill.color}`}
                 >
                   {pill.label}
                 </span>
@@ -73,11 +73,11 @@ const Home = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4">
+            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center lg:justify-start gap-2.5 sm:gap-4">
               <a
                 href={resumeUrl}
                 download="Prince_Kumar_Resume.pdf"
-                className="inline-flex w-full sm:w-auto min-w-[190px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 px-7 py-3.5 text-sm font-semibold !text-white shadow-lg shadow-indigo-400/30 transition-all hover:shadow-xl hover:shadow-purple-400/40 hover:scale-105"
+                className="inline-flex min-h-[44px] w-full sm:w-auto min-w-[190px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 px-6 sm:px-7 py-3 sm:py-3.5 text-sm font-semibold !text-white shadow-lg shadow-indigo-400/30 transition-all hover:shadow-xl hover:shadow-purple-400/40 hover:scale-105 active:scale-95"
                 style={{ color: "#ffffff" }}
               >
                 <Download className="h-4 w-4" style={{ color: "#ffffff" }} />
@@ -85,14 +85,14 @@ const Home = () => {
               </a>
               <a
                 href="#projects"
-                className="inline-flex w-full sm:w-auto min-w-[160px] items-center justify-center gap-2 rounded-full border-2 border-indigo-200 bg-white px-7 py-3.5 text-sm font-semibold text-indigo-700 shadow-sm transition-all hover:bg-indigo-50 hover:border-indigo-400 hover:scale-105"
+                className="inline-flex min-h-[44px] w-full sm:w-auto min-w-[160px] items-center justify-center gap-2 rounded-full border-2 border-indigo-200 bg-white px-6 sm:px-7 py-3 sm:py-3.5 text-sm font-semibold text-indigo-700 shadow-sm transition-all hover:bg-indigo-50 hover:border-indigo-400 hover:scale-105 active:scale-95"
               >
                 Explore Projects
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="mailto:princek8320@gmail.com"
-                className="inline-flex w-full sm:w-auto min-w-[150px] items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/90 px-7 py-3.5 text-sm font-semibold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:scale-105"
+                className="inline-flex min-h-[44px] w-full sm:w-auto min-w-[150px] items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/90 px-6 sm:px-7 py-3 sm:py-3.5 text-sm font-semibold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:scale-105 active:scale-95"
               >
                 <Mail className="h-4 w-4" />
                 Contact Me
@@ -100,16 +100,16 @@ const Home = () => {
             </div>
 
             {/* Mixed-Color Metrics / Stats Grid */}
-            <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 max-w-2xl mx-auto lg:mx-0">
+            <div className="mt-8 sm:mt-10 grid grid-cols-2 gap-2.5 sm:grid-cols-4 sm:gap-4 max-w-2xl mx-auto lg:mx-0">
               {statBadges.map((stat, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-slate-200/80 bg-white/80 p-3.5 shadow-sm backdrop-blur-sm transition-all hover:shadow-md hover:-translate-y-0.5"
+                  className="rounded-2xl border border-slate-200/80 bg-white/80 p-3 sm:p-3.5 shadow-sm backdrop-blur-sm transition-all hover:shadow-md hover:-translate-y-0.5"
                 >
-                  <div className={`text-xl font-extrabold sm:text-2xl bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent`}>
+                  <div className={`text-lg sm:text-2xl font-extrabold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent`}>
                     {stat.value}
                   </div>
-                  <div className="mt-0.5 text-xs font-medium text-slate-500">
+                  <div className="mt-0.5 text-[11px] sm:text-xs font-medium text-slate-500">
                     {stat.label}
                   </div>
                 </div>
@@ -120,7 +120,7 @@ const Home = () => {
 
           {/* Right Column (Interactive 3D WebGL Canvas + Profile Hologram) */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center order-1 lg:order-2">
-            <div className="relative w-full max-w-[460px] aspect-square flex items-center justify-center">
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-full lg:max-w-[460px] lg:aspect-square flex items-center justify-center">
               
               {/* 3D WebGL Scene */}
               <div className="absolute inset-0 z-0">
@@ -131,7 +131,7 @@ const Home = () => {
               <div className="relative z-10 pointer-events-none flex flex-col items-center">
                 <div className="relative group">
                   <div className="absolute -inset-1.5 rounded-full bg-gradient-to-r from-cyan-400 via-indigo-500 via-purple-500 to-pink-500 opacity-80 blur-md transition duration-500 group-hover:opacity-100 group-hover:blur-lg" />
-                  <div className="relative h-32 w-32 sm:h-36 sm:w-36 overflow-hidden rounded-full border-4 border-white shadow-2xl ring-2 ring-indigo-300">
+                  <div className="relative h-28 w-28 sm:h-36 sm:w-36 overflow-hidden rounded-full border-4 border-white shadow-2xl ring-2 ring-indigo-300">
                     <img
                       src={profileImg}
                       alt="Prince Kumar - AI and ML Developer and Web Developer from Presidency University"
@@ -144,7 +144,7 @@ const Home = () => {
                 </div>
 
                 {/* Floating Micro Badge */}
-                <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-indigo-200/90 bg-white/95 px-3 py-1 text-[11px] font-bold text-indigo-700 shadow-md backdrop-blur-md">
+                <div className="mt-2.5 sm:mt-3 inline-flex items-center gap-1.5 rounded-full border border-indigo-200/90 bg-white/95 px-3 py-1 text-[11px] font-bold text-indigo-700 shadow-md backdrop-blur-md">
                   <Cpu className="h-3 w-3 text-indigo-600 animate-spin" style={{ animationDuration: "8s" }} />
                   <span>AI &bull; ML &bull; IoT</span>
                 </div>

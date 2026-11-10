@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Award, Trophy, ExternalLink, Download, Eye, X } from "lucide-react";
 
 const awardsData = [
@@ -134,6 +134,18 @@ const Certificates = () => {
   const [activeTab, setActiveTab] = useState("awards");
   const [activePreview, setActivePreview] = useState(null);
 
+  // Lock body scroll on mobile & desktop when modal preview is active
+  useEffect(() => {
+    if (activePreview) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [activePreview]);
+
   const displayedItems = activeTab === "awards" ? awardsData : certificationsData;
 
   const getFileUrl = (fileName) => {
@@ -141,24 +153,24 @@ const Certificates = () => {
   };
 
   return (
-    <section id="certificates" className="scroll-mt-[var(--nav-h)] py-20 sm:py-24">
-      <div className="mx-auto max-w-6xl px-5 sm:px-6">
+    <section id="certificates" className="scroll-mt-[var(--nav-h)] py-14 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {/* Header */}
-        <div className="mb-10 text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">
+        <div className="mb-8 sm:mb-10 text-center">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">
             Credentials &amp; Achievements
           </p>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl">
+          <h2 className="mt-2 text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-800">
             {activeTab === "awards" ? "Honors & Awards" : "Professional Certifications"}
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-slate-500">
+          <p className="mx-auto mt-2.5 sm:mt-3 max-w-2xl text-xs sm:text-base text-slate-500">
             {activeTab === "awards"
               ? "Recognition from national competitions, hackathons, and innovation challenges."
               : "Verified credentials from enterprise programs, specialized AI courses, and database training."}
           </p>
 
-          {/* Separated Tabs (No 'All' option) */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          {/* Separated Tabs */}
+          <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
@@ -166,7 +178,7 @@ const Certificates = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold transition-all ${
+                  className={`inline-flex min-h-[40px] items-center gap-2 rounded-full px-4 sm:px-5 py-2 sm:py-2.5 text-xs font-bold transition-all active:scale-95 ${
                     isActive
                       ? "bg-gradient-to-r from-indigo-600 to-purple-600 !text-white shadow-md shadow-indigo-300/40 scale-105"
                       : "bg-white text-slate-600 hover:bg-slate-100 hover:text-slate-900 border border-slate-200/80 shadow-2xs"
@@ -189,7 +201,7 @@ const Certificates = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-2">
+        <div className="grid gap-5 sm:gap-7 md:grid-cols-2 lg:grid-cols-2">
           {displayedItems.map((cert) => {
             const fileUrl = getFileUrl(cert.file);
             return (
@@ -198,42 +210,42 @@ const Certificates = () => {
                 className="flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all hover:shadow-xl hover:-translate-y-1"
               >
                 {/* Header Band */}
-                <div className={`bg-gradient-to-r ${cert.gradient} px-6 py-4 text-white flex items-center justify-between gap-3`}>
+                <div className={`bg-gradient-to-r ${cert.gradient} px-4 py-3 sm:px-6 sm:py-4 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3`}>
                   <div>
-                    <span className="text-[11px] font-semibold uppercase tracking-wider opacity-90">
+                    <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider opacity-90">
                       {cert.issuer}
                     </span>
-                    <h3 className="mt-0.5 text-base font-bold leading-snug">
+                    <h3 className="mt-0.5 text-sm sm:text-base font-bold leading-snug">
                       {cert.title}
                     </h3>
                   </div>
-                  <span className={`shrink-0 rounded-full px-2.5 py-1 text-[11px] font-bold shadow-sm bg-white/20 backdrop-blur-sm text-white border border-white/30`}>
+                  <span className={`self-start sm:self-center shrink-0 rounded-full px-2.5 py-0.5 sm:py-1 text-[10px] sm:text-[11px] font-bold shadow-sm bg-white/20 backdrop-blur-sm text-white border border-white/30`}>
                     {cert.badge}
                   </span>
                 </div>
 
                 {/* Body */}
-                <div className="p-6 flex-1 flex flex-col justify-between">
+                <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="flex flex-wrap items-center justify-between text-xs text-slate-400 mb-3 gap-1">
+                    <div className="flex flex-wrap items-center justify-between text-xs text-slate-400 mb-2.5 sm:mb-3 gap-1">
                       <span>Completed: <strong className="text-slate-600">{cert.date}</strong></span>
                       {cert.certId && (
-                        <span className="font-mono text-[11px] text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-100">
+                        <span className="font-mono text-[10px] sm:text-[11px] text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-100">
                           ID: {cert.certId}
                         </span>
                       )}
                     </div>
 
-                    <p className="text-sm leading-relaxed text-slate-600 mb-4">
+                    <p className="text-xs sm:text-sm leading-relaxed text-slate-600 mb-3.5 sm:mb-4">
                       {cert.description}
                     </p>
 
                     {/* Skill Tags */}
-                    <div className="flex flex-wrap gap-1.5 mb-6">
+                    <div className="flex flex-wrap gap-1 sm:gap-1.5 mb-4 sm:mb-6">
                       {cert.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] font-medium text-slate-700"
+                          className="rounded-full bg-slate-100 px-2 sm:px-2.5 py-0.5 text-[10px] sm:text-[11px] font-medium text-slate-700"
                         >
                           {skill}
                         </span>
@@ -246,16 +258,16 @@ const Certificates = () => {
                     <button
                       type="button"
                       onClick={() => setActivePreview(cert)}
-                      className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-semibold text-white shadow-sm transition hover:bg-slate-800"
+                      className="inline-flex flex-1 min-h-[40px] items-center justify-center gap-1.5 rounded-xl bg-slate-900 px-3.5 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-slate-800 active:scale-95"
                     >
                       <Eye className="h-3.5 w-3.5" />
-                      Preview
+                      <span>Preview</span>
                     </button>
                     <a
                       href={fileUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
+                      className="inline-flex min-h-[40px] min-w-[40px] items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 active:scale-95"
                       title="Open full size in new tab"
                     >
                       <ExternalLink className="h-3.5 w-3.5" />
@@ -263,7 +275,7 @@ const Certificates = () => {
                     <a
                       href={fileUrl}
                       download={cert.file}
-                      className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
+                      className="inline-flex min-h-[40px] min-w-[40px] items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 active:scale-95"
                       title="Download Certificate"
                     >
                       <Download className="h-3.5 w-3.5" />
@@ -278,13 +290,21 @@ const Certificates = () => {
 
       {/* Modal Lightbox Preview */}
       {activePreview && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-2 sm:p-4 backdrop-blur-sm">
-          <div className="relative flex max-h-[95vh] w-full max-w-4xl flex-col rounded-2xl bg-white shadow-2xl overflow-hidden">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-2 sm:p-4 backdrop-blur-sm"
+          onClick={() => setActivePreview(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="relative flex max-h-[92vh] w-full max-w-4xl flex-col rounded-2xl bg-white shadow-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
             {/* Modal Header */}
-            <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3 sm:px-6 sm:py-4">
-              <div className="pr-2">
-                <h3 className="text-sm sm:text-base font-bold text-slate-800 line-clamp-1">{activePreview.title}</h3>
-                <p className="text-[11px] sm:text-xs text-slate-500">{activePreview.issuer} &bull; {activePreview.date}</p>
+            <div className="flex items-center justify-between border-b border-slate-200 px-3.5 py-2.5 sm:px-6 sm:py-4">
+              <div className="pr-2 min-w-0">
+                <h3 className="text-xs sm:text-base font-bold text-slate-800 truncate">{activePreview.title}</h3>
+                <p className="text-[10px] sm:text-xs text-slate-500 truncate">{activePreview.issuer} &bull; {activePreview.date}</p>
               </div>
               <div className="flex items-center gap-1 sm:gap-2 shrink-0">
                 <a
@@ -315,19 +335,34 @@ const Certificates = () => {
               </div>
             </div>
 
+            {/* Mobile Fallback Banner for PDF */}
+            {activePreview.isPdf && (
+              <div className="flex sm:hidden items-center justify-between gap-2 px-3 py-1.5 bg-indigo-50 border-b border-indigo-100 text-[11px] text-indigo-900">
+                <span>PDF not loading on mobile?</span>
+                <a
+                  href={getFileUrl(activePreview.file)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold underline text-indigo-700"
+                >
+                  Open in Browser
+                </a>
+              </div>
+            )}
+
             {/* Modal Content */}
-            <div className="flex-1 overflow-auto bg-slate-900/5 p-2 sm:p-4 flex items-center justify-center min-h-[280px] sm:min-h-[480px]">
+            <div className="flex-1 overflow-auto bg-slate-900/5 p-2 sm:p-4 flex items-center justify-center min-h-[260px] sm:min-h-[480px]">
               {activePreview.isPdf ? (
                 <iframe
                   src={getFileUrl(activePreview.file)}
                   title={activePreview.title}
-                  className="h-[60vh] sm:h-[65vh] w-full rounded-lg border border-slate-200 bg-white shadow-sm"
+                  className="h-[55vh] sm:h-[65vh] w-full rounded-lg border border-slate-200 bg-white shadow-sm"
                 />
               ) : (
                 <img
                   src={getFileUrl(activePreview.file)}
                   alt={activePreview.title}
-                  className="max-h-[60vh] sm:max-h-[65vh] max-w-full rounded-lg object-contain shadow-md"
+                  className="max-h-[55vh] sm:max-h-[65vh] max-w-full rounded-lg object-contain shadow-md"
                 />
               )}
             </div>

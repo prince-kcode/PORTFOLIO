@@ -75,24 +75,24 @@ const skillCategories = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="scroll-mt-[var(--nav-h)] py-20 sm:py-24">
-      <div className="mx-auto max-w-5xl px-5 sm:px-6">
+    <section id="skills" className="scroll-mt-[var(--nav-h)] py-14 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
         {/* Section Header */}
-        <div className="mb-12 text-center sm:text-left">
+        <div className="mb-9 sm:mb-12 text-center sm:text-left">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-teal-200 bg-teal-50/80 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-teal-700 shadow-sm mb-3">
             <Cpu className="h-3.5 w-3.5 text-teal-600" />
             Technical Stack
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
             AI &amp; ML <span className="bg-gradient-to-r from-teal-500 via-indigo-500 to-purple-600 bg-clip-text text-transparent">Engineering Stack</span>
           </h2>
-          <p className="mt-3 text-slate-600 max-w-2xl text-base sm:text-lg">
+          <p className="mt-2.5 sm:mt-3 text-slate-600 max-w-2xl text-sm sm:text-lg">
             Core competencies organized across Deep Learning, Data Analytics, Full-Stack ML Serving, and Hardware IoT Telemetry.
           </p>
         </div>
 
         {/* 4 Cards Grid with 3D Tilt Cards */}
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
           {skillCategories.map((cat, idx) => {
             const Icon = cat.icon;
             return (
@@ -100,33 +100,33 @@ const Skills = () => {
                 key={idx}
                 maxTilt={8}
                 glare={true}
-                className={`group rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-2xl ${cat.glow}`}
+                className={`group rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-7 md:p-8 shadow-sm transition-all duration-300 hover:shadow-2xl ${cat.glow}`}
               >
                 {/* Header with Mixed Gradient */}
-                <div className="flex items-center justify-between gap-3 mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className={`flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br ${cat.gradient} text-white shadow-md shadow-indigo-500/20 transition-transform group-hover:scale-110`}>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 mb-3.5 sm:mb-4">
+                  <div className="flex items-center gap-2.5 sm:gap-3">
+                    <div className={`flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${cat.gradient} text-white shadow-md shadow-indigo-500/20 transition-transform group-hover:scale-110`}>
                       <Icon className="h-5 w-5" />
                     </div>
-                    <h3 className="text-lg font-bold text-slate-800">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-800 leading-snug">
                       {cat.title}
                     </h3>
                   </div>
-                  <span className={`shrink-0 rounded-full border px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${cat.badgeColor}`}>
+                  <span className={`self-start sm:self-center shrink-0 rounded-full border px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${cat.badgeColor}`}>
                     {cat.badge}
                   </span>
                 </div>
 
-                <p className="text-sm leading-relaxed text-slate-600 mb-5">
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-600 mb-4 sm:mb-5">
                   {cat.description}
                 </p>
 
                 {/* Skill Pills */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {cat.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-full border border-slate-200 bg-slate-50/80 px-3 py-1 text-xs font-medium text-slate-700 transition hover:border-indigo-300 hover:bg-indigo-50/50 hover:text-indigo-800"
+                      className="rounded-full border border-slate-200 bg-slate-50/80 px-2.5 sm:px-3 py-1 text-[11px] sm:text-xs font-medium text-slate-700 transition hover:border-indigo-300 hover:bg-indigo-50/50 hover:text-indigo-800"
                     >
                       {skill}
                     </span>
