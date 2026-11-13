@@ -11,6 +11,12 @@ Allow: /Prince_Kumar_Resume.pdf
 User-agent: Googlebot-Image
 Allow: /profile.jpg
 
+User-agent: Bingbot
+Allow: /
+Allow: /Prince_Kumar_Resume.pdf
+Allow: /profile.jpg
+Allow: /certificates/
+
 # Host & Sitemaps
 Host: https://portfolio-princepandit.vercel.app
 Sitemap: https://portfolio-princepandit.vercel.app/sitemap.xml
