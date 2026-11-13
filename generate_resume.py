@@ -15,7 +15,20 @@ def create_resume(output_path):
         leftMargin=34,
         rightMargin=34,
         topMargin=28,
-        bottomMargin=28
+        bottomMargin=28,
+        title="Prince Kumar Resume | AI & ML Engineer & Software Developer | Presidency University",
+        author="Prince Kumar",
+        subject="Official Resume of Prince Kumar — B.Tech CSE (AI & ML) at Presidency University, Bengaluru. Team Leader of Team NeuraForge (SIH 2026 - ANUPALAN), AI/ML Engineer, and Full-Stack Web Developer.",
+        keywords=[
+            "Prince Kumar",
+            "Prince Kumar Resume",
+            "AI ML Engineer",
+            "Software Developer",
+            "Presidency University Bengaluru",
+            "Smart India Hackathon 2026",
+            "Team NeuraForge",
+            "ANUPALAN",
+        ],
     )
 
     styles = getSampleStyleSheet()

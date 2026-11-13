@@ -1,7 +1,70 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/resume.pdf",
+      "destination": "/Prince_Kumar_Resume.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/resume",
+      "destination": "/Prince_Kumar_Resume.pdf",
+      "permanent": true
+    }
+  ],
   "headers": [
+    {
+      "source": "/Prince_Kumar_Resume.pdf",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "inline; filename=\"Prince_Kumar_Resume.pdf\""
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow, max-snippet:-1, max-image-preview:large"
+        },
+        {
+          "key": "Link",
+          "value": "<https://portfolio-princepandit.vercel.app/Prince_Kumar_Resume.pdf>; rel=\"canonical\""
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
+        }
+      ]
+    },
     {
       "source": "/assets/(.*)",
       "headers": [
@@ -14,6 +77,10 @@
     {
       "source": "/(.*)",
       "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        },
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
@@ -31,7 +98,7 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!Prince_Kumar_Resume\\.pdf|resume\\.pdf|sitemap\\.xml|robots\\.txt|profile\\.jpg|profile\\.svg|googlebeef6ddaeb4f6157\\.html|certificates/|assets/).*)",
       "destination": "/index.html"
     }
   ]

@@ -6,6 +6,7 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/prince-kumar-00863b336";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const resumeUrl = `${import.meta.env.BASE_URL}Prince_Kumar_Resume.pdf`;
 
   return (
     <footer className="border-t border-slate-200/80 bg-white/70 py-8 sm:py-12 text-sm text-slate-500 backdrop-blur-md">
@@ -30,6 +31,7 @@ const Footer = () => {
             <a href="#education" className="transition hover:text-indigo-600 active:text-indigo-700 py-1 px-1.5">Education</a>
             <a href="#certificates" className="transition hover:text-indigo-600 active:text-indigo-700 py-1 px-1.5">Certificates</a>
             <a href="#resume" className="transition hover:text-indigo-600 active:text-indigo-700 py-1 px-1.5">Resume</a>
+            <a href={resumeUrl} target="_blank" rel="noopener noreferrer" className="transition hover:text-indigo-600 active:text-indigo-700 py-1 px-1.5">Resume PDF</a>
             <a href="#contact" className="transition hover:text-indigo-600 active:text-indigo-700 py-1 px-1.5">Contact</a>
           </nav>
 

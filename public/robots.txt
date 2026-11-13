@@ -1,5 +1,16 @@
 User-agent: *
 Allow: /
+Allow: /Prince_Kumar_Resume.pdf
+Allow: /profile.jpg
+Allow: /certificates/
 
-# Sitemaps
+User-agent: Googlebot
+Allow: /
+Allow: /Prince_Kumar_Resume.pdf
+
+User-agent: Googlebot-Image
+Allow: /profile.jpg
+
+# Host & Sitemaps
+Host: https://portfolio-princepandit.vercel.app
 Sitemap: https://portfolio-princepandit.vercel.app/sitemap.xml

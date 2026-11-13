@@ -1,8 +1,9 @@
 import React from "react";
-import { CheckCircle, GraduationCap, Brain, Award, Trophy, Sparkles } from "lucide-react";
+import { CheckCircle, GraduationCap, Brain, Award, Trophy, Sparkles, Download, ExternalLink } from "lucide-react";
 import TiltCard from "./ui/TiltCard";
 
 const Resume = () => {
+  const resumeUrl = `${import.meta.env.BASE_URL}Prince_Kumar_Resume.pdf`;
   const highlights = [
     {
       icon: Brain,
@@ -78,6 +79,28 @@ const Resume = () => {
           <p className="mx-auto mt-2.5 sm:mt-4 max-w-2xl text-sm sm:text-lg text-slate-600">
             B.Tech CSE (AI &amp; ML) student at Presidency University. A snapshot of specialized domains, applied AI &amp; ML systems, and engineering achievements.
           </p>
+
+          {/* Direct Crawlable Resume PDF Links */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[42px] items-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 px-6 py-2.5 text-xs sm:text-sm font-semibold !text-white shadow-md shadow-indigo-300/30 transition hover:scale-105 active:scale-95"
+              style={{ color: "#ffffff" }}
+            >
+              <ExternalLink className="h-4 w-4" style={{ color: "#ffffff" }} />
+              <span style={{ color: "#ffffff" }}>View Official Resume (PDF)</span>
+            </a>
+            <a
+              href={resumeUrl}
+              download="Prince_Kumar_Resume.pdf"
+              className="inline-flex min-h-[42px] items-center gap-2 rounded-full border border-indigo-200 bg-white px-6 py-2.5 text-xs sm:text-sm font-semibold text-indigo-700 shadow-sm transition hover:bg-indigo-50 hover:border-indigo-300 active:scale-95"
+            >
+              <Download className="h-4 w-4" />
+              <span>Download Resume PDF</span>
+            </a>
+          </div>
         </div>
 
         {/* Highlights Grid with 3D Tilt Cards */}
